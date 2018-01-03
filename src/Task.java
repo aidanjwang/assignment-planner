@@ -6,6 +6,12 @@ public class Task {
 
     /* CONSTRUCTORS */
 
+    /**
+     * Constructs new Task.
+     * @param name
+     * @param assignment
+     * @param time
+     */
     public Task(String name, Assignment assignment, int time) {
         _name = name;
         _assignment = assignment;
