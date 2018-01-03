@@ -53,7 +53,7 @@ public class Subject {
     private String _name;
 
     /**
-     * List of subject's assignments.
+     * List of subject's assignments in order by due date.
      */
     private ArrayList<Assignment> _assignments;
 
