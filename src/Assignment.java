@@ -9,6 +9,12 @@ public class Assignment {
 
     /* CONSTRUCTOR */
 
+    /**
+     * Constructs new Assignment.
+     * @param name
+     * @param dueDate
+     * @param tasks
+     */
     public Assignment(String name, LocalDate dueDate, ArrayList<Task> tasks) {
         _name = name;
         _dueDate = dueDate;
