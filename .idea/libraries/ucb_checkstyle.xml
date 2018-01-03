@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="ucb-checkstyle">
-    <CLASSES>
-      <root url="jar://$USER_HOME$/cs61b-software/lib/ucb-checkstyle.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

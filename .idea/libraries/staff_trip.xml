@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="staff-trip">
-    <CLASSES>
-      <root url="jar://$USER_HOME$/cs61b-software/lib/staff-trip.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
