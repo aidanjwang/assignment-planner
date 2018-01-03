@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="ucb-f2007">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/cs61b-software/lib/ucb-f2007.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
