@@ -54,4 +54,9 @@ public class APS implements Serializable {
      */
     private ArrayList<Subject> _subjects;
 
+    /**
+     * Contains hours of work time for each day of the week.
+     */
+    private int[] _dailyHours;
+
 }
