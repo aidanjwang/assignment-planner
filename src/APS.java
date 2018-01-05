@@ -1,3 +1,6 @@
+import sun.util.resources.fi.CalendarData_fi;
+
+import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -14,8 +17,9 @@ public class APS implements Serializable {
      * Constructs new APS.
      * @param subjects
      */
-    public APS (ArrayList<Subject> subjects) {
+    public APS (ArrayList<Subject> subjects, int[] dailyHours) {
         _subjects = subjects;
+        _dailyHours = dailyHours;
     }
 
     /* METHODS */
@@ -47,6 +51,29 @@ public class APS implements Serializable {
      */
     public void viewAll() {}
 
+    /**
+     * Returns true if APS system is initialized.
+     * @return
+     */
+    public static boolean isInitialized() {
+        return true; //TODO
+    }
+
+    /**
+     * Serializes this into the _file filepath.
+     */
+    public void serialize() {
+        Utils.writeObject(_file, this);
+    }
+
+    /**
+     * Deserializes the APS object from the _file filepath.
+     * @return
+     */
+    public static APS deserialize() {
+        return Utils.readObject(_file, APS.class);
+    }
+
     /* FIELDS */
 
     /**
@@ -58,5 +85,10 @@ public class APS implements Serializable {
      * Contains hours of work time for each day of the week.
      */
     private int[] _dailyHours;
+
+    /**
+     * The filepath where the APS is stored.
+     */
+    private static File _file = new File("APS");
 
 }
