@@ -1,8 +1,6 @@
-import sun.util.resources.fi.CalendarData_fi;
-
 import java.io.File;
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.LinkedHashSet;
 
 /**
  * Contains all subjects, assignments, and tasks in the system.
@@ -17,12 +15,16 @@ public class APS implements Serializable {
      * Constructs new APS.
      * @param subjects
      */
-    public APS (ArrayList<Subject> subjects, int[] dailyHours) {
+    public APS (LinkedHashSet<Subject> subjects, int[] dailyHours) {
         _subjects = subjects;
         _dailyHours = dailyHours;
     }
 
     /* METHODS */
+
+    public void addAssignment(Assignment assignment, String subject) {
+
+    }
 
     /**
      * Prints categorical view of subject, assignments, and tasks.
@@ -77,9 +79,9 @@ public class APS implements Serializable {
     /* FIELDS */
 
     /**
-     * List of subjects in APS in user's order.
+     * Set of subjects in APS in user's order.
      */
-    private ArrayList<Subject> _subjects;
+    private LinkedHashSet<Subject> _subjects;
 
     /**
      * Contains hours of work time for each day of the week.

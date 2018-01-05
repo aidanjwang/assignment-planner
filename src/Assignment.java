@@ -1,5 +1,5 @@
 import java.time.LocalDate;
-import java.util.ArrayList;
+import java.util.LinkedHashSet;
 
 /**
  * Represents a single assignment.
@@ -7,18 +7,23 @@ import java.util.ArrayList;
  */
 public class Assignment {
 
-    /* CONSTRUCTOR */
+    /* CONSTRUCTORS */
 
     /**
      * Constructs new Assignment.
      * @param name
      * @param dueDate
-     * @param tasks
      */
-    public Assignment(String name, LocalDate dueDate, ArrayList<Task> tasks) {
+    public Assignment(String name, LocalDate dueDate) {
         _name = name;
         _dueDate = dueDate;
-        _tasks = tasks;
+        _tasks = new LinkedHashSet<>();
+    }
+
+    /* METHODS */
+
+    public void addTask(Task task) {
+        _tasks.add(task);
     }
 
     /* ACCESSORS */
@@ -43,7 +48,7 @@ public class Assignment {
      * Accessor for _tasks.
      * @return
      */
-    public ArrayList<Task> get_tasks() {
+    public LinkedHashSet<Task> get_tasks() {
         return _tasks;
     }
 
@@ -60,8 +65,8 @@ public class Assignment {
     private LocalDate _dueDate;
 
     /**
-     * List of the assignment's tasks, in correct order.
+     * Set of the assignment's tasks, in initial order.
      */
-    private ArrayList<Task> _tasks;
+    private LinkedHashSet<Task> _tasks;
 
 }

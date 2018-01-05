@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+import java.util.TreeSet;
 
 /**
  * Represents a single subject category for assignments.
@@ -14,7 +14,7 @@ public class Subject {
      */
     public Subject(String name) {
         _name = name;
-        _assignments = new ArrayList<>();
+        _assignments = new TreeSet<>();
     }
 
     /* METHODS */
@@ -41,7 +41,7 @@ public class Subject {
      * Accessor for _assignments.
      * @return
      */
-    public ArrayList<Assignment> get_assignments() {
+    public TreeSet<Assignment> get_assignments() {
         return _assignments;
     }
 
@@ -53,8 +53,8 @@ public class Subject {
     private String _name;
 
     /**
-     * List of subject's assignments in order by due date.
+     * List of subject's assignments sorted by due date.
      */
-    private ArrayList<Assignment> _assignments;
+    private TreeSet<Assignment> _assignments;
 
 }
