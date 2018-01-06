@@ -22,8 +22,8 @@ public class APS implements Serializable {
 
     /* METHODS */
 
-    public void addAssignment(Assignment assignment, String subject) {
-
+    public void addAssignment(Assignment assignment, Subject subject) {
+        subject.addAssignment(assignment);
     }
 
     /**
@@ -57,7 +57,7 @@ public class APS implements Serializable {
      * @return
      */
     public static boolean isInitialized() {
-        return true; //TODO
+        return _file.isFile();
     }
 
     /**
