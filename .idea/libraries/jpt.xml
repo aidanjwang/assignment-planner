@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jpt">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/cs61b-software/lib/jpt.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

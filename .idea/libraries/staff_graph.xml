@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="staff-graph">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/cs61b-software/lib/staff-graph.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
