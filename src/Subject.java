@@ -23,7 +23,7 @@ public class Subject {
      * Adds a new assignment to this subject.
      * @param name
      */
-    public void add(Assignment name) {
+    public void addAssignment(Assignment name) {
         _assignments.add(name);
     }
 

@@ -30,16 +30,15 @@ public class APS implements Serializable {
      * Prints categorical view of subject, assignments, and tasks.
      */
     public void viewCategorical() {
-        System.out.println("=== Assignments ===\n");
+        System.out.println("=== Assignments ===");
         for (Subject subject : _subjects) {
             System.out.println(subject.get_name());
             for (Assignment assignment : subject.get_assignments()) {
-                System.out.println("  " + assignment.get_name());
+                System.out.println("  " + assignment.get_name() + " due " + assignment.get_dueDate());
                 for (Task task : assignment.get_tasks()) {
-                    System.out.println("    " + task.get_name());
+                    System.out.println("    " + task.get_name() + " (" + task.get_time() + ")");
                 }
             }
-            System.out.println();
         }
     }
 

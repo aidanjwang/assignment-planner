@@ -5,7 +5,7 @@ import java.util.LinkedHashSet;
  * Represents a single assignment.
  * @author A. J. Wang
  */
-public class Assignment {
+public class Assignment implements Comparable<Assignment> {
 
     /* CONSTRUCTORS */
 
@@ -24,6 +24,11 @@ public class Assignment {
 
     public void addTask(Task task) {
         _tasks.add(task);
+    }
+
+
+    public int compareTo(Assignment a) {
+        return this._dueDate.compareTo(a._dueDate);
     }
 
     /* ACCESSORS */
