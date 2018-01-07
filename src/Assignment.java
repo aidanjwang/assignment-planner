@@ -18,12 +18,14 @@ public class Assignment implements Comparable<Assignment> {
         _name = name;
         _dueDate = dueDate;
         _tasks = new LinkedHashSet<>();
+        _time = 0;
     }
 
     /* METHODS */
 
     public void addTask(Task task) {
         _tasks.add(task);
+        _time += task.get_time();
     }
 
 
@@ -57,6 +59,14 @@ public class Assignment implements Comparable<Assignment> {
         return _tasks;
     }
 
+    /**
+     * Accessor for _time.
+     * @return
+     */
+    public int get_time() {
+        return _time;
+    }
+
     /* FIELDS */
 
     /**
@@ -73,5 +83,7 @@ public class Assignment implements Comparable<Assignment> {
      * Set of the assignment's tasks, in initial order.
      */
     private LinkedHashSet<Task> _tasks;
+
+    private int _time;
 
 }

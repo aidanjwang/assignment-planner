@@ -28,6 +28,7 @@ public class Main {
 
         while (true) {
             if (!interpreter.command()) {
+                _APS.serialize();
                 break;
             }
         }

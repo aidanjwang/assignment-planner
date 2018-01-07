@@ -26,4 +26,9 @@ public class Date {
      */
     private HashSet<Task> _tasks;
 
+    /**
+     * Amount of time currently allocated to tasks on this date.
+     */
+    private int _workTime;
+
 }
