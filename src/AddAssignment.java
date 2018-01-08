@@ -5,4 +5,9 @@
  */
 public class AddAssignment {
 
+    /* METHODS */
+    public static Assignment add() {
+        return null; //TODO
+    }
+
 }

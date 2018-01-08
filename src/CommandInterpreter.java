@@ -12,13 +12,13 @@ public class CommandInterpreter {
     /* CONSTRUCTORS */
 
     CommandInterpreter(Scanner inp, PrintStream prompter) {
-
+        //TODO
     }
 
     /* METHODS */
 
     public boolean command() {
-        return false;
+        return false; //TODO
     }
 
 }

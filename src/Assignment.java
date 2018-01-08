@@ -13,22 +13,33 @@ public class Assignment implements Comparable<Assignment> {
      * Constructs new Assignment.
      * @param name
      * @param dueDate
+     * @param subject
      */
-    public Assignment(String name, LocalDate dueDate) {
+    public Assignment(String name, LocalDate dueDate, Subject subject) {
         _name = name;
         _dueDate = dueDate;
         _tasks = new LinkedHashSet<>();
         _time = 0;
+        _subject = subject;
     }
 
     /* METHODS */
 
+    /**
+     * Adds a task to this assignment.
+     * @param task
+     */
     public void addTask(Task task) {
         _tasks.add(task);
         _time += task.get_time();
     }
 
 
+    /**
+     * compareTo method for sorting.
+     * @param a
+     * @return
+     */
     public int compareTo(Assignment a) {
         return this._dueDate.compareTo(a._dueDate);
     }
@@ -67,6 +78,14 @@ public class Assignment implements Comparable<Assignment> {
         return _time;
     }
 
+    /**
+     * Accessor for _subject.
+     * @return
+     */
+    public Subject get_subject() {
+        return _subject;
+    }
+
     /* FIELDS */
 
     /**
@@ -84,6 +103,14 @@ public class Assignment implements Comparable<Assignment> {
      */
     private LinkedHashSet<Task> _tasks;
 
+    /**
+     * Total time needed to complete assignment's tasks.
+     */
     private int _time;
+
+    /**
+     * The subject this assignment belongs to.
+     */
+    private Subject _subject;
 
 }

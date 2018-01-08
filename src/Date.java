@@ -12,6 +12,33 @@ public class Date {
     public Date(LocalDate date) {
         _date = date;
         _tasks = new HashSet<>();
+        _workTime = 0;
+    }
+
+    /* ACCESSORS */
+
+    /**
+     * Accessor for _date.
+     * @return
+     */
+    public LocalDate get_date() {
+        return _date;
+    }
+
+    /**
+     * Accessor for _tasks.
+     * @return
+     */
+    public HashSet<Task> get_tasks() {
+        return _tasks;
+    }
+
+    /**
+     * Accessor for _workTime.
+     * @return
+     */
+    public int get_workTime() {
+        return _workTime;
     }
 
     /* FIELDS */

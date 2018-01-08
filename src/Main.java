@@ -14,10 +14,10 @@ public class Main {
      * @param args
      */
     public static void main(String... args) {
-        System.out.println("Assignment Planner System");
+        System.out.println("Assignment Planner System.");
 
         if (!APS.isInitialized()) {
-            // Initialize
+            _APS = Initialize.initialize();
         } else {
             _APS = APS.deserialize();
         }

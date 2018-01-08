@@ -16,7 +16,7 @@ public class APS implements Serializable {
      * Constructs new APS.
      * @param subjects
      */
-    public APS (LinkedHashSet<Subject> subjects, int[] dailyHours) {
+    public APS (LinkedHashSet<Subject> subjects, double[] dailyHours) {
         _subjects = subjects;
         _dailyHours = dailyHours;
         _assignments = new TreeSet<>();
@@ -24,9 +24,15 @@ public class APS implements Serializable {
 
     /* METHODS */
 
-    public void addAssignment(Assignment assignment, Subject subject) {
-        subject.addAssignment(assignment);
+    /**
+     * Adds assignment to its subject and _assignments, then updates
+     * the _toDoLists.
+     * @param assignment
+     */
+    public void addAssignment(Assignment assignment) {
+        assignment.get_subject().addAssignment(assignment);
         _assignments.add(assignment);
+        update();
     }
 
     /**
@@ -41,15 +47,56 @@ public class APS implements Serializable {
             _toDoLists.add(new Date(today.plusDays(x)));
         }
 
-        int numDays;
-        double dailyTime;
+        int numDays, extraTime;
+        double dailyTime, remainingTime;
         Iterator<Task> taskIterator;
+        double[] dailyHours;
         for (Assignment assignment : _assignments) {
             numDays = LocalDate.now().compareTo(assignment.get_dueDate());
             dailyTime = assignment.get_time() / numDays;
+            remainingTime = remainingTime(numDays);
             taskIterator = assignment.get_tasks().iterator();
-
+            if (remainingTime < assignment.get_time()) {
+                dailyHours = arrayScaler(_dailyHours,
+                        assignment.get_time() / remainingTime);
+            } else {
+                dailyHours = _dailyHours.clone();
+            }
+            //TODO
         }
+    }
+
+    /**
+     * Calculates total unallocated worktime between today and
+     * given number of subsequent days. Used in update().
+     * @param numDays
+     * @return
+     */
+    private double remainingTime(int numDays) {
+        double remainingTime = 0;
+        int x = 0;
+        Date d = _toDoLists.get(x);
+        int today = d.get_date().getDayOfWeek().getValue();
+        while (x < numDays) {
+            d = _toDoLists.get(x);
+            remainingTime += _dailyHours[(today + x) % 7] - d.get_workTime();
+            x += 1;
+        }
+        return remainingTime;
+    }
+
+    /**
+     * Scales each element in the given array by the given scalar.
+     * Used in update().
+     * @param array
+     * @param scalar
+     * @return
+     */
+    private double[] arrayScaler(double[] array, double scalar) {
+        for (int x = 0; x < array.length; x += 1) {
+            array[x] *= scalar;
+        }
+        return array;
     }
 
     /**
@@ -112,8 +159,9 @@ public class APS implements Serializable {
 
     /**
      * Contains hours of work time for each day of the week.
+     * _dailyHours[0] corresponds to Sunday, and so forth.
      */
-    private int[] _dailyHours;
+    private double[] _dailyHours;
 
     private TreeSet<Assignment> _assignments;
 

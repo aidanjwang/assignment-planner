@@ -4,6 +4,10 @@
  */
 public class Initialize {
 
+    /* METHODS */
 
+    public static APS initialize() {
+        return null; //TODO
+    }
 
 }
