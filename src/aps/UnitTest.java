@@ -72,7 +72,7 @@ public class UnitTest {
 
     @Test
     public void initializeTest2() {
-        _APS = Initialize.initialize(input);
+        _APS = Initialize.initialize(new Tokenizer(input, System.out));
         _APS.viewAll();
     }
 

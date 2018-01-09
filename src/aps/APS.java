@@ -155,7 +155,7 @@ public class APS implements Serializable {
     }
 
     /**
-     * Returns the aps.Subject in _subjects with the given name.
+     * Returns the Subject in _subjects with the given name.
      * @param name
      * @return
      */
@@ -166,11 +166,11 @@ public class APS implements Serializable {
             }
         }
         throw new NoSuchElementException(
-                "aps.Subject with given name does not exist.");
+                "Subject with given name does not exist.");
     }
 
     /**
-     * Returns true if aps.APS system is initialized.
+     * Returns true if APS system is initialized.
      * @return
      */
     public static boolean isInitialized() {
@@ -185,7 +185,7 @@ public class APS implements Serializable {
     }
 
     /**
-     * Deserializes the aps.APS object from the _file filepath.
+     * Deserializes the APS object from the _file filepath.
      * @return
      */
     public static APS deserialize() {
@@ -213,7 +213,7 @@ public class APS implements Serializable {
     /* FIELDS */
 
     /**
-     * Set of subjects in aps.APS in user's order.
+     * Set of subjects in APS in user's order.
      */
     private LinkedHashSet<Subject> _subjects;
 
@@ -236,8 +236,8 @@ public class APS implements Serializable {
     private ArrayList<Date> _toDoLists;
 
     /**
-     * The filepath where the aps.APS is stored.
+     * The filepath where the APS is stored.
      */
-    private static File _file = new File("aps.APS");
+    private static File _file = new File("aps");
 
 }

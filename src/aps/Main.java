@@ -1,5 +1,7 @@
 package aps;
 
+import com.sun.xml.internal.xsom.impl.scd.Token;
+
 import java.util.Scanner;
 
 /**
@@ -18,7 +20,7 @@ public class Main {
     public static void main(String... args) {
         System.out.println("aps.Assignment Planner System.");
 
-        Scanner input = new Scanner(System.in);
+        Tokenizer input = new Tokenizer(new Scanner(System.in), System.out);
 
         if (!APS.isInitialized()) {
             _APS = Initialize.initialize(input);
