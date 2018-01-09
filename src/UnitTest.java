@@ -3,6 +3,7 @@ import ucb.junit.textui;
 
 import java.time.LocalDate;
 import java.util.LinkedHashSet;
+import java.util.Scanner;
 
 /**
  * JUnit tests for the Assignment Planner system.
@@ -33,13 +34,13 @@ public class UnitTest {
         Subject English = new Subject("English");
         subjects.add(CS);
         subjects.add(English);
-        int[] dailyHours = {5, 5, 5, 5, 5, 5, 5};
+        double[] dailyHours = {5, 5, 5, 5, 5, 5, 5};
         _APS = new APS(subjects, dailyHours);
 
         LocalDate dueDate1 = LocalDate.of(2018, 1, 14);
         LocalDate dueDate2 = LocalDate.of(2018, 1, 12);
-        Assignment CSProj = new Assignment("CSProj", dueDate1);
-        Assignment reading = new Assignment("reading", dueDate2);
+        Assignment CSProj = new Assignment("CSProj", dueDate1, CS);
+        Assignment reading = new Assignment("reading", dueDate2, English);
         CS.addAssignment(CSProj);
         English.addAssignment(reading);
 
@@ -56,6 +57,21 @@ public class UnitTest {
     public void testViewCategorical() {
         initializeTest();
         _APS.viewCategorical();
+    }
+
+
+    /* AddAssignment Tests */
+
+    /* Main Tests */
+
+    /* Initialize Tests */
+
+    Scanner input = new Scanner(System.in);
+
+    @Test
+    public void initializeTest2() {
+        _APS = Initialize.initialize(input);
+        _APS.viewAll();
     }
 
 }

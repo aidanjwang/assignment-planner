@@ -38,7 +38,7 @@ public class CommandInterpreter {
             case "quit":
                 return false;
             default:
-                throw new RuntimeException("unrecognizable command");
+                System.out.println("That is an unrecognizable command.");
         }
         return true;
     }
@@ -55,7 +55,7 @@ public class CommandInterpreter {
      * name to remove.
      */
     private void removeCommand() {
-        String subjectName;
+        /*String subjectName;
         do {
             System.out.println("Remove assignment from which subject?");
             subjectName = _input.next();
@@ -71,7 +71,7 @@ public class CommandInterpreter {
         String name = _input.next();
         Assignment a = new Assignment(name, )
         if (_APS.get_assignments().contains())
-            //TODO
+            //TODO*/
     }
 
     /**

@@ -16,13 +16,14 @@ public class Main {
     public static void main(String... args) {
         System.out.println("Assignment Planner System.");
 
+        Scanner input = new Scanner(System.in);
+
         if (!APS.isInitialized()) {
-            _APS = Initialize.initialize();
+            _APS = Initialize.initialize(input);
         } else {
             _APS = APS.deserialize();
         }
 
-        Scanner input = new Scanner(System.in);
         CommandInterpreter interpreter =
                 new CommandInterpreter(input, _APS);
 
