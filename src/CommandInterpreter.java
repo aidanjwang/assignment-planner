@@ -11,14 +11,55 @@ public class CommandInterpreter {
 
     /* CONSTRUCTORS */
 
-    CommandInterpreter(Scanner inp, PrintStream prompter) {
-        //TODO
+    CommandInterpreter(Scanner inp, APS aps) {
+        _input = inp;
+        _APS = aps;
     }
 
     /* METHODS */
 
     public boolean command() {
-        return false; //TODO
+        switch (_input.next()) {
+            case "add":
+                addCommand();
+                break;
+            case "remove":
+                removeCommand();
+                break;
+            case "view all":
+                viewAllCommand();
+                break;
+            case "view today":
+                viewTodayCommand();
+                break;
+            case "view all lists":
+                viewAllListsCommand();
+                break;
+            case "exit":
+            case "quit":
+                exitCommand();
+                return false;
+            default:
+                throw new RuntimeException("unrecognizable command");
+        }
+        return true;
     }
+
+    /**
+     * Executes add command.
+     */
+    private void addCommand() {
+        _APS.addAssignment(AddAssignment.add());
+    }
+
+    private void removeCommand() {
+
+    }
+
+    /* FIELDS */
+
+    private Scanner _input;
+
+    private APS _APS;
 
 }

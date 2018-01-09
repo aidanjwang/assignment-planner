@@ -27,6 +27,14 @@ public class Subject {
         _assignments.add(name);
     }
 
+    /**
+     * Removes the given assignment from this subject.
+     * @param name
+     */
+    public void removeAssignment(Assignment name) {
+        _assignments.remove(name);
+    }
+
     /* ACCESSORS */
 
     /**

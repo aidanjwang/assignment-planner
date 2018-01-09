@@ -35,6 +35,10 @@ public class APS implements Serializable {
         update();
     }
 
+    public void removeAssignment(Assignment assignment) {
+        assignment.get_subject().r
+    }
+
     /**
      * Clears, then reassigns to-do lists for every day from today
      * till last due date.

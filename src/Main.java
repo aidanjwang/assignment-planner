@@ -24,7 +24,7 @@ public class Main {
 
         Scanner input = new Scanner(System.in);
         CommandInterpreter interpreter =
-                new CommandInterpreter(input, System.out);
+                new CommandInterpreter(input, _APS);
 
         while (true) {
             if (!interpreter.command()) {
