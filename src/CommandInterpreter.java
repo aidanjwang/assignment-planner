@@ -1,4 +1,3 @@
-import java.io.PrintStream;
 import java.util.Scanner;
 
 /**
@@ -37,7 +36,6 @@ public class CommandInterpreter {
                 break;
             case "exit":
             case "quit":
-                exitCommand();
                 return false;
             default:
                 throw new RuntimeException("unrecognizable command");
@@ -73,6 +71,28 @@ public class CommandInterpreter {
         String name = _input.next();
         Assignment a = new Assignment(name, )
         if (_APS.get_assignments().contains())
+            //TODO
+    }
+
+    /**
+     * Executes view all command.
+     */
+    private void viewAllCommand() {
+        _APS.viewCategorical();
+    }
+
+    /**
+     * Executes view today command.
+     */
+    private void viewTodayCommand() {
+        _APS.viewToday();
+    }
+
+    /**
+     * Executes view all lists command.
+     */
+    private void viewAllListsCommand() {
+        _APS.viewAll();
     }
 
     /* FIELDS */
