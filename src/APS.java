@@ -35,8 +35,15 @@ public class APS implements Serializable {
         update();
     }
 
+    /**
+     * Removes assignment from its subject and _assignments, then
+     * updates the _toDoLists.
+     * @param assignment
+     */
     public void removeAssignment(Assignment assignment) {
-        assignment.get_subject().r
+        assignment.get_subject().removeAssignment(assignment);
+        _assignments.remove(assignment);
+        update();
     }
 
     /**
@@ -132,6 +139,35 @@ public class APS implements Serializable {
     public void viewAll() {}
 
     /**
+     * Returns true if _subjects contains given subject name.
+     * @param name
+     * @return
+     */
+    public boolean containsSubjectName(String name) {
+        for (Subject subject : _subjects) {
+            if (subject.get_name().equals(name)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Returns the Subject in _subjects with the given name.
+     * @param name
+     * @return
+     */
+    public Subject getSubject(String name) {
+        for (Subject subject : _subjects) {
+            if (subject.get_name().equals(name)) {
+                return subject;
+            }
+        }
+        throw new NoSuchElementException(
+                "Subject with given name does not exist.");
+    }
+
+    /**
      * Returns true if APS system is initialized.
      * @return
      */
@@ -154,6 +190,24 @@ public class APS implements Serializable {
         return Utils.readObject(_file, APS.class);
     }
 
+    /* ACCESSORS */
+
+    /**
+     * Accessor for _subjects.
+     * @return
+     */
+    public LinkedHashSet<Subject> get_subjects() {
+        return _subjects;
+    }
+
+    /**
+     * Accessor for _assignments.
+     * @return
+     */
+    public TreeSet<Assignment> get_assignments() {
+        return _assignments;
+    }
+
     /* FIELDS */
 
     /**
@@ -167,10 +221,15 @@ public class APS implements Serializable {
      */
     private double[] _dailyHours;
 
+    /**
+     * Contains all assignments from all subjects, sorted by
+     * due date.
+     */
     private TreeSet<Assignment> _assignments;
 
     /**
-     *
+     * Contains Date objects from today till the last assignment's
+     * due date.
      */
     private ArrayList<Date> _toDoLists;
 

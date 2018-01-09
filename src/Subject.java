@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+import java.util.NoSuchElementException;
 import java.util.TreeSet;
 
 /**
@@ -34,6 +36,36 @@ public class Subject {
     public void removeAssignment(Assignment name) {
         _assignments.remove(name);
     }
+
+    /**
+     * Returns true if _assignments contains given assignment name.
+     * @param name
+     * @return
+     */
+    public boolean containsAssignmentName(String name) {
+        for (Assignment assignment : _assignments) {
+            if (assignment.get_name().equals(name)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Returns the Assignment in _assignments with the given name.
+     * @param name
+     * @return
+     */
+    public Assignment getAssignments(String name) {
+        for (Assignment assignment : _assignments) {
+            if (assignment.get_name().equals(name)) {
+                return assignment;
+            }
+        }
+        throw new NoSuchElementException(
+                "Assignment with given name does not exist.");
+    }
+
 
     /* ACCESSORS */
 

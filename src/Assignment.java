@@ -34,9 +34,8 @@ public class Assignment implements Comparable<Assignment> {
         _time += task.get_time();
     }
 
-
     /**
-     * compareTo method for sorting.
+     * compareTo() method for sorting.
      * @param a
      * @return
      */

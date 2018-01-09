@@ -46,14 +46,33 @@ public class CommandInterpreter {
     }
 
     /**
-     * Executes add command.
+     * Executes add command. Calls AddAssignment class.
      */
     private void addCommand() {
         _APS.addAssignment(AddAssignment.add());
     }
 
+    /**
+     * Executes remove command. Prompts user for assignment
+     * name to remove.
+     */
     private void removeCommand() {
+        String subjectName;
+        do {
+            System.out.println("Remove assignment from which subject?");
+            subjectName = _input.next();
+        } while (!_APS.containsSubjectName(subjectName));
+        Subject subject = _APS.getSubject(subjectName);
 
+        String name;
+        do {
+            System.out.println("Remove which assignment?");
+            name = _input.next();
+        } while (!subject.get_assignments().contains())
+
+        String name = _input.next();
+        Assignment a = new Assignment(name, )
+        if (_APS.get_assignments().contains())
     }
 
     /* FIELDS */
