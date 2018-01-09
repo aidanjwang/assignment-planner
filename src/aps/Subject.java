@@ -1,4 +1,5 @@
-import java.time.LocalDate;
+package aps;
+
 import java.util.NoSuchElementException;
 import java.util.TreeSet;
 
@@ -11,7 +12,7 @@ public class Subject {
     /* CONSTRUCTORS */
 
     /**
-     * Constructs new Subject.
+     * Constructs new aps.Subject.
      * @param name
      */
     public Subject(String name) {
@@ -52,7 +53,7 @@ public class Subject {
     }
 
     /**
-     * Returns the Assignment in _assignments with the given name.
+     * Returns the aps.Assignment in _assignments with the given name.
      * @param name
      * @return
      */
@@ -63,7 +64,7 @@ public class Subject {
             }
         }
         throw new NoSuchElementException(
-                "Assignment with given name does not exist.");
+                "aps.Assignment with given name does not exist.");
     }
 
 

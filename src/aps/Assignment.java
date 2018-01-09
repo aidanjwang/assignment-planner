@@ -1,3 +1,5 @@
+package aps;
+
 import java.time.LocalDate;
 import java.util.LinkedHashSet;
 
@@ -10,7 +12,7 @@ public class Assignment implements Comparable<Assignment> {
     /* CONSTRUCTORS */
 
     /**
-     * Constructs new Assignment.
+     * Constructs new aps.Assignment.
      * @param name
      * @param dueDate
      * @param subject

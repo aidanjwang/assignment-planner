@@ -1,8 +1,10 @@
+package aps;
+
 import java.util.Scanner;
 
 /**
  * Reads and interprets commands from an input source.
- * Based off the CommandInterpreter class in the UC Berkeley
+ * Based off the aps.CommandInterpreter class in the UC Berkeley
  * CS61B database project with Prof. P. N. Hilfinger.
  * @author A. J. Wang
  */
@@ -44,7 +46,7 @@ public class CommandInterpreter {
     }
 
     /**
-     * Executes add command. Calls AddAssignment class.
+     * Executes add command. Calls aps.AddAssignment class.
      */
     private void addCommand() {
         _APS.addAssignment(AddAssignment.add());
@@ -60,7 +62,7 @@ public class CommandInterpreter {
             System.out.println("Remove assignment from which subject?");
             subjectName = _input.next();
         } while (!_APS.containsSubjectName(subjectName));
-        Subject subject = _APS.getSubject(subjectName);
+        aps.Subject subject = _APS.getSubject(subjectName);
 
         String name;
         do {
@@ -69,7 +71,7 @@ public class CommandInterpreter {
         } while (!subject.get_assignments().contains())
 
         String name = _input.next();
-        Assignment a = new Assignment(name, )
+        aps.Assignment a = new aps.Assignment(name, )
         if (_APS.get_assignments().contains())
             //TODO*/
     }

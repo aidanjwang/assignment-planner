@@ -1,8 +1,10 @@
+package aps;
+
 import java.util.LinkedHashSet;
 import java.util.Scanner;
 
 /**
- * Contains methods for initializing Assignment Planner system.
+ * Contains methods for initializing aps.Assignment Planner system.
  * @author A. J. Wang
  */
 public class Initialize {
@@ -10,7 +12,7 @@ public class Initialize {
     /* METHODS */
 
     public static APS initialize(Scanner input) {
-        System.out.println("Welcome. We will now initialize your Assignment Planner System.");
+        System.out.println("Welcome. We will now initialize your aps.Assignment Planner System.");
 
         LinkedHashSet<Subject> subjects = new LinkedHashSet<>();
         do {

@@ -1,5 +1,7 @@
+package aps;
+
 /**
- * Contains methods for adding assignments to Assignment Planner
+ * Contains methods for adding assignments to aps.Assignment Planner
  * system.
  * @author A. J. Wang
  */

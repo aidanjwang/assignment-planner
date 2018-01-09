@@ -1,3 +1,5 @@
+package aps;
+
 /**
  * Represents a single task of an assignment.
  * @author A. J. Wang
@@ -7,7 +9,7 @@ public class Task {
     /* CONSTRUCTORS */
 
     /**
-     * Constructs new Task.
+     * Constructs new aps.Task.
      * @param name
      * @param assignment
      * @param time

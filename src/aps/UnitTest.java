@@ -1,3 +1,5 @@
+package aps;
+
 import org.junit.Test;
 import ucb.junit.textui;
 
@@ -6,7 +8,7 @@ import java.util.LinkedHashSet;
 import java.util.Scanner;
 
 /**
- * JUnit tests for the Assignment Planner system.
+ * JUnit tests for the aps.Assignment Planner system.
  * @author A. J. Wang
  */
 public class UnitTest {
@@ -18,10 +20,10 @@ public class UnitTest {
         textui.runClasses(UnitTest.class);
     }
 
-    /* APS Tests */
+    /* aps.APS Tests */
 
     /**
-     * APS instance for tests.
+     * aps.APS instance for tests.
      */
     private APS _APS;
 
@@ -51,7 +53,7 @@ public class UnitTest {
     }
 
     /**
-     * Tests APS.viewCategorical.
+     * Tests aps.APS.viewCategorical.
      */
     @Test
     public void testViewCategorical() {
@@ -60,11 +62,11 @@ public class UnitTest {
     }
 
 
-    /* AddAssignment Tests */
+    /* aps.AddAssignment Tests */
 
-    /* Main Tests */
+    /* aps.Main Tests */
 
-    /* Initialize Tests */
+    /* aps.Initialize Tests */
 
     Scanner input = new Scanner(System.in);
 

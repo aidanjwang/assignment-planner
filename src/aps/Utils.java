@@ -1,6 +1,9 @@
+package aps;
+
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.util.regex.Pattern;
 
 /** Assorted utilities. From UC Berkeley CS61B course with Prof. P. N. Hilfinger.
  *  @author P. N. Hilfinger
@@ -126,4 +129,14 @@ class Utils {
         return new RuntimeException(String.format(msg, args));
     }
 
+    /* READING USER INPUT */
+
+    /**
+     * Return a pattern created by formatting S with arguments ARGS (as for
+     * String.format).
+     */
+    static Pattern mkPatn(String s, Object... args) {
+        s = s.replace(" *", "\\s*").replace(" ", "\\s+");
+        return Pattern.compile(String.format(s, args));
+    }
 }

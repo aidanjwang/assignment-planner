@@ -1,3 +1,5 @@
+package aps;
+
 import java.time.LocalDate;
 import java.util.HashSet;
 
@@ -44,7 +46,7 @@ public class Date {
     /* FIELDS */
 
     /**
-     * The date this Date represents.
+     * The date this aps.Date represents.
      */
     private LocalDate _date;
 

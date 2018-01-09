@@ -1,3 +1,5 @@
+package aps;
+
 import java.io.File;
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -13,7 +15,7 @@ public class APS implements Serializable {
     /* CONSTRUCTORS */
 
     /**
-     * Constructs new APS.
+     * Constructs new aps.APS.
      * @param subjects
      */
     public APS (LinkedHashSet<Subject> subjects, double[] dailyHours) {
@@ -153,7 +155,7 @@ public class APS implements Serializable {
     }
 
     /**
-     * Returns the Subject in _subjects with the given name.
+     * Returns the aps.Subject in _subjects with the given name.
      * @param name
      * @return
      */
@@ -164,11 +166,11 @@ public class APS implements Serializable {
             }
         }
         throw new NoSuchElementException(
-                "Subject with given name does not exist.");
+                "aps.Subject with given name does not exist.");
     }
 
     /**
-     * Returns true if APS system is initialized.
+     * Returns true if aps.APS system is initialized.
      * @return
      */
     public static boolean isInitialized() {
@@ -183,7 +185,7 @@ public class APS implements Serializable {
     }
 
     /**
-     * Deserializes the APS object from the _file filepath.
+     * Deserializes the aps.APS object from the _file filepath.
      * @return
      */
     public static APS deserialize() {
@@ -211,7 +213,7 @@ public class APS implements Serializable {
     /* FIELDS */
 
     /**
-     * Set of subjects in APS in user's order.
+     * Set of subjects in aps.APS in user's order.
      */
     private LinkedHashSet<Subject> _subjects;
 
@@ -228,14 +230,14 @@ public class APS implements Serializable {
     private TreeSet<Assignment> _assignments;
 
     /**
-     * Contains Date objects from today till the last assignment's
+     * Contains aps.Date objects from today till the last assignment's
      * due date.
      */
     private ArrayList<Date> _toDoLists;
 
     /**
-     * The filepath where the APS is stored.
+     * The filepath where the aps.APS is stored.
      */
-    private static File _file = new File("APS");
+    private static File _file = new File("aps.APS");
 
 }
