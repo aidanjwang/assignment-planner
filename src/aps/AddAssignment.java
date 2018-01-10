@@ -20,25 +20,25 @@ public class AddAssignment {
      */
     public static Assignment add(Tokenizer input, APS aps) {
         System.out.println("Which subject is the assignment in?");
-        String next = input.next();
+        String next = literal(input);
         while (!aps.containsSubjectName(next)) {
             System.out.println("That subject doesn't exist. Please enter another.");
-            next = input.next();
+            next = literal(input);
         }
         Subject subject = aps.getSubject(next);
 
         System.out.println("What is the name of the assignment?");
-        String name = input.next();
+        String name = literal(input);
 
         System.out.println("When is the assignment due?");
-        LocalDate dueDate = LocalDate.parse(input.next());
+        LocalDate dueDate = LocalDate.parse(literal(input));
 
         Assignment assignment = new Assignment(name, dueDate, subject);
 
         System.out.println("What are the tasks that make up this assignment?");
         ArrayList<String> taskNames = new ArrayList<>();
         while (!input.nextIf(";")) {
-            taskNames.add(input.next());
+            taskNames.add(literal(input));
         }
         System.out.println("How many hours will each task take?");
         double[] taskTimes = new double[taskNames.size()];
@@ -52,5 +52,15 @@ public class AddAssignment {
 
         return assignment;
     }
+
+    /**
+     * Parse a literal and return the string it represents (i.e., without
+     * single quotes).
+     */
+    private static String literal(Tokenizer input) {
+        String lit = input.next(Tokenizer.LITERAL);
+        return lit.substring(1, lit.length() - 1).trim();
+    }
+
 
 }

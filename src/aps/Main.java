@@ -1,7 +1,5 @@
 package aps;
 
-import com.sun.xml.internal.xsom.impl.scd.Token;
-
 import java.util.Scanner;
 
 /**
@@ -32,10 +30,16 @@ public class Main {
                 new CommandInterpreter(input, _APS);
 
         while (true) {
-            if (!interpreter.command()) {
-                _APS.serialize();
-                break;
+            try {
+                if (!interpreter.command()) {
+                    _APS.serialize();
+                    break;
+                }
+            } catch (RuntimeException e) {
+                System.out.printf("Error: %s%n", e.getMessage());
+                interpreter.skipCommand();
             }
+
         }
     }
 

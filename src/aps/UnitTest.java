@@ -86,6 +86,9 @@ public class UnitTest {
 
     /* Initialize Tests */
 
+    /**
+     * Tests initialize method.
+     */
     @Test
     public void testInitialize() {
         String commands = "'CS' 'English'; 5 5 5 5 5 5 5;";

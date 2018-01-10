@@ -1,5 +1,7 @@
 package aps;
 
+import static aps.Utils.error;
+
 /**
  * Reads and interprets commands from an input source.
  * Based off the CommandInterpreter class in the UC Berkeley
@@ -18,35 +20,30 @@ public class CommandInterpreter {
     /* METHODS */
 
     public boolean command() {
-        switch (_input.next()) {
+        switch (_input.peek()) {
             case "add":
                 addCommand();
                 break;
             case "remove":
                 removeCommand();
                 break;
-            case "view all":
-                viewAllCommand();
-                break;
-            case "view today":
-                viewTodayCommand();
-                break;
-            case "view all lists":
-                viewAllListsCommand();
+            case "view":
+                viewCommand();
                 break;
             case "exit":
             case "quit":
                 return false;
             default:
-                System.out.println("That is an unrecognizable command.");
+                throw error("That is an unrecognizable command.");
         }
         return true;
     }
 
     /**
-     * Executes add command. Calls aps.AddAssignment class.
+     * Executes add command. Calls AddAssignment class.
      */
     private void addCommand() {
+        _input.next();
         _APS.addAssignment(AddAssignment.add(_input, _APS));
     }
 
@@ -55,27 +52,31 @@ public class CommandInterpreter {
      * name to remove.
      */
     private void removeCommand() {
-        String subjectName;
-        do {
-            System.out.println("Remove assignment from which subject?");
-            subjectName = _input.next();
-        } while (!_APS.containsSubjectName(subjectName));
-        aps.Subject subject = _APS.getSubject(subjectName);
-
-        String name;
-        do {
-            System.out.println("Remove which assignment?");
-            name = _input.next();
-        } while (false);
-
-        name = _input.next();
+        _input.next();
         //TODO
+    }
+
+    private void viewCommand() {
+        _input.next();
+        switch (_input.peek()) {
+            case "today":
+                viewTodayCommand();
+                break;
+            case "all":
+                viewAllCommand();
+                break;
+            case "subjects":
+                viewSubjectsCommand();
+                break;
+        }
     }
 
     /**
      * Executes view all command.
      */
-    private void viewAllCommand() {
+    private void viewSubjectsCommand() {
+        _input.next();
+        _input.next(";");
         _APS.viewCategorical();
     }
 
@@ -83,13 +84,17 @@ public class CommandInterpreter {
      * Executes view today command.
      */
     private void viewTodayCommand() {
+        _input.next();
+        _input.next(";");
         _APS.viewToday();
     }
 
     /**
      * Executes view all lists command.
      */
-    private void viewAllListsCommand() {
+    private void viewAllCommand() {
+        _input.next();
+        _input.next(";");
         _APS.viewAll();
     }
 
@@ -100,6 +105,22 @@ public class CommandInterpreter {
     String literal() {
         String lit = _input.next(Tokenizer.LITERAL);
         return lit.substring(1, lit.length() - 1).trim();
+    }
+
+    /**
+     * Advance the input past the next semicolon.
+     */
+    void skipCommand() {
+        while (true) {
+            try {
+                while (!_input.nextIf(";") && !_input.nextIf("*EOF*")) {
+                    _input.next();
+                }
+                return;
+            } catch (RuntimeException excp) {
+                /* No action */
+            }
+        }
     }
 
     /* FIELDS */
