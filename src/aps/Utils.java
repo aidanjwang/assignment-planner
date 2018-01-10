@@ -10,31 +10,6 @@ import java.util.regex.Pattern;
  */
 class Utils {
 
-    /* FILE DELETION */
-
-    /** Deletes FILE if it exists and is not a directory.  Returns true
-     *  if FILE was deleted, and false otherwise.  Refuses to delete FILE
-     *  and throws IllegalArgumentException unless the directory designated by
-     *  FILE also contains a directory named .gitlet. */
-    static boolean restrictedDelete(File file) {
-        if (!(new File(file.getParentFile(), ".gitlet")).isDirectory()) {
-            throw new IllegalArgumentException("not .gitlet working directory");
-        }
-        if (!file.isDirectory()) {
-            return file.delete();
-        } else {
-            return false;
-        }
-    }
-
-    /** Deletes the file named FILE if it exists and is not a directory.
-     *  Returns true if FILE was deleted, and false otherwise.  Refuses
-     *  to delete FILE and throws IllegalArgumentException unless the
-     *  directory designated by FILE also contains a directory named .gitlet. */
-    static boolean restrictedDelete(String file) {
-        return restrictedDelete(new File(file));
-    }
-
     /* READING AND WRITING FILE CONTENTS */
 
     /** Return the entire contents of FILE as a byte array.  FILE must

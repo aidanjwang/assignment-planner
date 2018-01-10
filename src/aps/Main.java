@@ -18,7 +18,7 @@ public class Main {
      * @param args
      */
     public static void main(String... args) {
-        System.out.println("aps.Assignment Planner System.");
+        System.out.println("Assignment Planner System.");
 
         Tokenizer input = new Tokenizer(new Scanner(System.in), System.out);
 

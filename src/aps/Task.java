@@ -1,10 +1,12 @@
 package aps;
 
+import java.io.Serializable;
+
 /**
  * Represents a single task of an assignment.
  * @author A. J. Wang
  */
-public class Task {
+public class Task implements Serializable {
 
     /* CONSTRUCTORS */
 
@@ -14,7 +16,7 @@ public class Task {
      * @param assignment
      * @param time
      */
-    public Task(String name, Assignment assignment, int time) {
+    public Task(String name, Assignment assignment, double time) {
         _name = name;
         _assignment = assignment;
         _time = time;
@@ -42,7 +44,7 @@ public class Task {
      * Accessor for _time.
      * @return
      */
-    public int get_time() {
+    public double get_time() {
         return _time;
     }
 
@@ -61,6 +63,6 @@ public class Task {
     /**
      * Time needed for completion of task.
      */
-    private int _time;
+    private double _time;
 
 }

@@ -1,5 +1,6 @@
 package aps;
 
+import java.io.Serializable;
 import java.util.NoSuchElementException;
 import java.util.TreeSet;
 
@@ -7,7 +8,7 @@ import java.util.TreeSet;
  * Represents a single subject category for assignments.
  * @author A. J. Wang
  */
-public class Subject {
+public class Subject implements Serializable {
 
     /* CONSTRUCTORS */
 

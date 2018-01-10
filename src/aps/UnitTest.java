@@ -1,8 +1,10 @@
 package aps;
 
+import com.sun.xml.internal.xsom.impl.scd.Token;
 import org.junit.Test;
 import ucb.junit.textui;
 
+import java.io.File;
 import java.time.LocalDate;
 import java.util.LinkedHashSet;
 import java.util.Scanner;
@@ -20,12 +22,17 @@ public class UnitTest {
         textui.runClasses(UnitTest.class);
     }
 
-    /* aps.APS Tests */
+    /* APS Tests */
 
     /**
-     * aps.APS instance for tests.
+     * APS instance for tests.
      */
     private APS _APS;
+
+    /**
+     * File path where APS is serialized.
+     */
+    private File _file = new File("aps");
 
     /**
      * Initializes _APS instance for tests.
@@ -53,7 +60,7 @@ public class UnitTest {
     }
 
     /**
-     * Tests aps.APS.viewCategorical.
+     * Tests APS.viewCategorical.
      */
     @Test
     public void testViewCategorical() {
@@ -61,19 +68,31 @@ public class UnitTest {
         _APS.viewCategorical();
     }
 
+    /**
+     * Tests serialize and deserialize methods.
+     */
+    @Test
+    public void testSerialize() {
+        initializeTest();
+        _APS.serialize();
+        _APS = APS.deserialize();
+        _APS.viewCategorical();
+        _file.delete();
+    }
 
-    /* aps.AddAssignment Tests */
+    /* AddAssignment Tests */
 
-    /* aps.Main Tests */
+    /* Main Tests */
 
-    /* aps.Initialize Tests */
-
-    Scanner input = new Scanner(System.in);
+    /* Initialize Tests */
 
     @Test
-    public void initializeTest2() {
-        _APS = Initialize.initialize(new Tokenizer(input, System.out));
-        _APS.viewAll();
+    public void testInitialize() {
+        String commands = "'CS' 'English'; 5 5 5 5 5 5 5;";
+        Scanner scanner = new Scanner(commands);
+        Tokenizer input = new Tokenizer(scanner, System.out);
+        _APS = Initialize.initialize(input);
+        _APS.viewCategorical();
     }
 
 }

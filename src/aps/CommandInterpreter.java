@@ -93,6 +93,15 @@ public class CommandInterpreter {
         _APS.viewAll();
     }
 
+    /**
+     * Parse a literal and return the string it represents (i.e., without
+     * single quotes).
+     */
+    String literal() {
+        String lit = _input.next(Tokenizer.LITERAL);
+        return lit.substring(1, lit.length() - 1).trim();
+    }
+
     /* FIELDS */
 
     private Tokenizer _input;

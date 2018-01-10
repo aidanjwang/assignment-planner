@@ -1,5 +1,6 @@
 package aps;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.LinkedHashSet;
 
@@ -7,7 +8,7 @@ import java.util.LinkedHashSet;
  * Represents a single assignment.
  * @author A. J. Wang
  */
-public class Assignment implements Comparable<Assignment> {
+public class Assignment implements Comparable<Assignment>, Serializable {
 
     /* CONSTRUCTORS */
 

@@ -38,7 +38,7 @@ class Tokenizer {
 
     /**
      * Patterns matching specific kinds of token.  These are intended
-     * to be used with methods such as aps.CommandInterpreter.name.
+     * to be used with methods such as CommandInterpreter.name.
      */
     static final Pattern
             IDENTIFIER = mkPatn(IDENTIFIER_TEXT),
