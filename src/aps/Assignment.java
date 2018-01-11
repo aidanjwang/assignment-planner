@@ -38,12 +38,13 @@ public class Assignment implements Comparable<Assignment>, Serializable {
     }
 
     /**
-     * compareTo() method for sorting.
+     * compareTo() method for sorting. Assignments with sooner
+     * due dates have higher priority.
      * @param a
      * @return
      */
     public int compareTo(Assignment a) {
-        return this._dueDate.compareTo(a._dueDate);
+        return a.get_dueDate().compareTo(this._dueDate);
     }
 
     /* ACCESSORS */

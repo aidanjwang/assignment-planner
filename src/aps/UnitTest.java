@@ -1,6 +1,5 @@
 package aps;
 
-import com.sun.xml.internal.xsom.impl.scd.Token;
 import org.junit.Test;
 import ucb.junit.textui;
 
@@ -10,7 +9,8 @@ import java.util.LinkedHashSet;
 import java.util.Scanner;
 
 /**
- * JUnit tests for the aps.Assignment Planner system.
+ * JUnit tests for the aps.Assignment Planner system. Library
+ * from UC Berkeley CS61B course with Prof. P. N. Hilfinger.
  * @author A. J. Wang
  */
 public class UnitTest {
@@ -35,37 +35,36 @@ public class UnitTest {
     private File _file = new File("aps");
 
     /**
-     * Initializes _APS instance for tests.
+     * Tests APS.addAssignment.
      */
-    private void initializeTest() {
+    @Test
+    public void testAddAssignment() {
         LinkedHashSet<Subject> subjects = new LinkedHashSet<>();
         Subject CS = new Subject("CS");
         Subject English = new Subject("English");
         subjects.add(CS);
         subjects.add(English);
-        double[] dailyHours = {5, 5, 5, 5, 5, 5, 5};
+        double[] dailyHours = {2, 2, 2, 2, 2, 2, 2};
         _APS = new APS(subjects, dailyHours);
 
         LocalDate dueDate1 = LocalDate.of(2018, 1, 14);
         LocalDate dueDate2 = LocalDate.of(2018, 1, 12);
-        Assignment CSProj = new Assignment("CSProj", dueDate1, CS);
+        Assignment project = new Assignment("project", dueDate1, CS);
         Assignment reading = new Assignment("reading", dueDate2, English);
-        CS.addAssignment(CSProj);
-        English.addAssignment(reading);
-
-        Task unitTest = new Task("unitTest", CSProj, 2);
+        Task unitTest = new Task("unitTest", project, 2);
+        Task debug = new Task("debug", project, 1);
         Task firstHalf = new Task("firstHalf", reading, 1);
-        CSProj.addTask(unitTest);
+        Task secondHalf = new Task("secondHalf", reading, 1);
+        project.addTask(unitTest);
+        project.addTask(debug);
         reading.addTask(firstHalf);
-    }
+        reading.addTask(secondHalf);
 
-    /**
-     * Tests APS.viewCategorical.
-     */
-    @Test
-    public void testViewCategorical() {
-        initializeTest();
+        _APS.addAssignment(project);
+        _APS.addAssignment(reading);
         _APS.viewCategorical();
+        _APS.viewToday();
+        _APS.viewAll();
     }
 
     /**
@@ -73,7 +72,7 @@ public class UnitTest {
      */
     @Test
     public void testSerialize() {
-        initializeTest();
+        testAddAssignment();
         _APS.serialize();
         _APS = APS.deserialize();
         _APS.viewCategorical();

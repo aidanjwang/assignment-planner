@@ -20,11 +20,23 @@ public class Date {
     /* METHODS */
 
     /**
-     * Adds task to _tasks.
+     * Adds task to _tasks. Also updates total worktime.
      * @param task
      */
     public void addTask(Task task) {
         _tasks.add(task);
+        _workTime += task.get_time();
+    }
+
+    public void print() {
+        System.out.println(_date + " (" + _workTime + ")");
+        for (Task task : _tasks) {
+            System.out.println("   ["
+                    + task.get_assignment().get_subject().get_name()
+                    + " " + task.get_assignment().get_name() + "] "
+                    + task.get_name()
+                    + " (" + task.get_time() + ")");
+        }
     }
 
     /* ACCESSORS */
@@ -49,7 +61,7 @@ public class Date {
      * Accessor for _workTime.
      * @return
      */
-    public int get_workTime() {
+    public double get_workTime() {
         return _workTime;
     }
 
@@ -68,6 +80,6 @@ public class Date {
     /**
      * Amount of time currently allocated to tasks on this date.
      */
-    private int _workTime;
+    private double _workTime;
 
 }

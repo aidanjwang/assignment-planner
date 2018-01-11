@@ -22,6 +22,7 @@ public class APS implements Serializable {
         _subjects = subjects;
         _dailyHours = dailyHours;
         _assignments = new TreeSet<>();
+        _toDoLists = new ArrayList<>();
     }
 
     /* METHODS */
@@ -62,7 +63,7 @@ public class APS implements Serializable {
         Task task;
         Date day;
         for (Assignment assignment : _assignments) {
-            numDays = LocalDate.now().compareTo(assignment.get_dueDate());
+            numDays = assignment.get_dueDate().compareTo(LocalDate.now());
             dailyTime = assignment.get_time() / numDays;
             remainingTime = remainingTime(numDays);
             taskIterator = assignment.get_tasks().iterator();
@@ -142,27 +143,43 @@ public class APS implements Serializable {
     public void viewCategorical() {
         System.out.println("=== Assignments ===");
         for (Subject subject : _subjects) {
-            System.out.println(subject.get_name());
+            System.out.println("[" + subject.get_name() + "]");
             for (Assignment assignment : subject.get_assignments()) {
-                System.out.println("  " + assignment.get_name()
-                        + " due " + assignment.get_dueDate());
+                System.out.println("   " + assignment.get_name()
+                        + ", due " + assignment.get_dueDate());
                 for (Task task : assignment.get_tasks()) {
-                    System.out.println("    " + task.get_name()
+                    System.out.println("      " + task.get_name()
                             + " (" + task.get_time() + ")");
                 }
             }
         }
+        System.out.println();
     }
 
     /**
      * Prints to-do list for today.
      */
-    public void viewToday() {}
+    public void viewToday() {
+        System.out.println("=== Today's To-Do List ===");
+        Date today = _toDoLists.get(0);
+        today.print();
+        System.out.println();
+    }
 
     /**
-     * Prints to-do lists for every day until last due date.
+     * Prints to-do lists for every day until last due date. Doesn't
+     * print days with no work assigned.
      */
-    public void viewAll() {}
+    public void viewAll() {
+        System.out.println("=== All To-Do Lists ===");
+        for (Date day : _toDoLists) {
+            if (day.get_workTime() == 0) {
+                break;
+            }
+            day.print();
+        }
+        System.out.println();
+    }
 
     /**
      * Returns true if _subjects contains given subject name.
@@ -249,7 +266,7 @@ public class APS implements Serializable {
 
     /**
      * Contains all assignments from all subjects, sorted by
-     * due date.
+     * due date sooner to later.
      */
     private TreeSet<Assignment> _assignments;
 
