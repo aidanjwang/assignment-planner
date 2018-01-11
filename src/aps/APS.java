@@ -53,17 +53,14 @@ public class APS implements Serializable {
      * till last due date.
      */
     private void update() {
-        _toDoLists.clear();
-        LocalDate today = LocalDate.now();
-        LocalDate lastDueDate = _assignments.last().get_dueDate();
-        for (int x = 0; x < lastDueDate.compareTo(today); x += 1) {
-            _toDoLists.add(new Date(today.plusDays(x)));
-        }
+        resetDates();
 
-        int numDays, extraTime;
-        double dailyTime, remainingTime;
-        Iterator<Task> taskIterator;
+        int numDays, x, dayOfWeek;
+        double dailyTime, remainingTime, runningTime;
         double[] dailyHours;
+        Iterator<Task> taskIterator;
+        Task task;
+        Date day;
         for (Assignment assignment : _assignments) {
             numDays = LocalDate.now().compareTo(assignment.get_dueDate());
             dailyTime = assignment.get_time() / numDays;
@@ -75,7 +72,34 @@ public class APS implements Serializable {
             } else {
                 dailyHours = _dailyHours.clone();
             }
-            //TODO
+            x = 0;
+            runningTime = 0;
+            while (taskIterator.hasNext()) {
+                task = taskIterator.next();
+                day = _toDoLists.get(x);
+                dayOfWeek = day.get_date().getDayOfWeek().getValue();
+                if (day.get_workTime() > dailyHours[dayOfWeek]
+                        || runningTime > dailyTime) {
+                    x += 1;
+                    runningTime = 0;
+                }
+                _toDoLists.get(x).addTask(task);
+                runningTime += task.get_time();
+            }
+        }
+    }
+
+    /**
+     * Clears _toDoLists and replaces with a new list of dates
+     * starting from today till the last assignment due date.
+     * Used in update().
+     */
+    private void resetDates() {
+        _toDoLists.clear();
+        LocalDate today = LocalDate.now();
+        LocalDate lastDueDate = _assignments.last().get_dueDate();
+        for (int x = 0; x < lastDueDate.compareTo(today); x += 1) {
+            _toDoLists.add(new Date(today.plusDays(x)));
         }
     }
 

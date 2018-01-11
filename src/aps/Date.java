@@ -17,6 +17,16 @@ public class Date {
         _workTime = 0;
     }
 
+    /* METHODS */
+
+    /**
+     * Adds task to _tasks.
+     * @param task
+     */
+    public void addTask(Task task) {
+        _tasks.add(task);
+    }
+
     /* ACCESSORS */
 
     /**

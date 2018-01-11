@@ -72,7 +72,7 @@ public class CommandInterpreter {
     }
 
     /**
-     * Executes view all command.
+     * Executes view subjects command.
      */
     private void viewSubjectsCommand() {
         _input.next();
@@ -90,7 +90,7 @@ public class CommandInterpreter {
     }
 
     /**
-     * Executes view all lists command.
+     * Executes view all command.
      */
     private void viewAllCommand() {
         _input.next();
@@ -122,6 +122,8 @@ public class CommandInterpreter {
             }
         }
     }
+
+
 
     /* FIELDS */
 
