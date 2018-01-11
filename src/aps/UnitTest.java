@@ -1,6 +1,7 @@
 package aps;
 
 import org.junit.Test;
+import org.junit.experimental.theories.suppliers.TestedOn;
 import ucb.junit.textui;
 
 import java.io.File;
@@ -65,6 +66,36 @@ public class UnitTest {
         _APS.viewCategorical();
         _APS.viewToday();
         _APS.viewAll();
+    }
+
+    @Test
+    public void testRemoveAssignment() {
+        LinkedHashSet<Subject> subjects = new LinkedHashSet<>();
+        Subject CS = new Subject("CS");
+        Subject English = new Subject("English");
+        subjects.add(CS);
+        subjects.add(English);
+        double[] dailyHours = {2, 2, 2, 2, 2, 2, 2};
+        _APS = new APS(subjects, dailyHours);
+
+        LocalDate dueDate1 = LocalDate.of(2018, 1, 14);
+        LocalDate dueDate2 = LocalDate.of(2018, 1, 12);
+        Assignment project = new Assignment("project", dueDate1, CS);
+        Assignment reading = new Assignment("reading", dueDate2, English);
+        Task unitTest = new Task("unitTest", project, 2);
+        Task debug = new Task("debug", project, 1);
+        Task firstHalf = new Task("firstHalf", reading, 1);
+        Task secondHalf = new Task("secondHalf", reading, 1);
+        project.addTask(unitTest);
+        project.addTask(debug);
+        reading.addTask(firstHalf);
+        reading.addTask(secondHalf);
+
+        _APS.addAssignment(project);
+        _APS.addAssignment(reading);
+        _APS.removeAssignment(project);
+
+        _APS.viewCategorical();
     }
 
     /**

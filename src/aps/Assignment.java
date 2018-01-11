@@ -44,7 +44,7 @@ public class Assignment implements Comparable<Assignment>, Serializable {
      * @return
      */
     public int compareTo(Assignment a) {
-        return a.get_dueDate().compareTo(this._dueDate);
+        return _dueDate.compareTo(a.get_dueDate());
     }
 
     /* ACCESSORS */

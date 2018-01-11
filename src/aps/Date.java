@@ -2,6 +2,7 @@ package aps;
 
 import java.time.LocalDate;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 
 /**
  * Each instance represents a date and holds the tasks to
@@ -13,7 +14,7 @@ public class Date {
 
     public Date(LocalDate date) {
         _date = date;
-        _tasks = new HashSet<>();
+        _tasks = new LinkedHashSet<>();
         _workTime = 0;
     }
 
@@ -75,7 +76,7 @@ public class Date {
     /**
      * The tasks to be done on this date.
      */
-    private HashSet<Task> _tasks;
+    private LinkedHashSet<Task> _tasks;
 
     /**
      * Amount of time currently allocated to tasks on this date.

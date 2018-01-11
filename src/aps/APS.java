@@ -79,8 +79,8 @@ public class APS implements Serializable {
                 task = taskIterator.next();
                 day = _toDoLists.get(x);
                 dayOfWeek = day.get_date().getDayOfWeek().getValue();
-                if (day.get_workTime() > dailyHours[dayOfWeek]
-                        || runningTime > dailyTime) {
+                if (day.get_workTime() >= dailyHours[dayOfWeek]
+                        || runningTime >= dailyTime) {
                     x += 1;
                     runningTime = 0;
                 }
@@ -113,11 +113,11 @@ public class APS implements Serializable {
     private double remainingTime(int numDays) {
         double remainingTime = 0;
         int x = 0;
-        Date d = _toDoLists.get(x);
-        int today = d.get_date().getDayOfWeek().getValue();
+        Date day = _toDoLists.get(x);
+        int dayOfWeek = day.get_date().getDayOfWeek().getValue();
         while (x < numDays) {
-            d = _toDoLists.get(x);
-            remainingTime += _dailyHours[(today + x) % 7] - d.get_workTime();
+            day = _toDoLists.get(x);
+            remainingTime += _dailyHours[(dayOfWeek + x) % 7] - day.get_workTime();
             x += 1;
         }
         return remainingTime;
