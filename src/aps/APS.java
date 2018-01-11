@@ -3,6 +3,7 @@ package aps;
 import java.io.File;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 /**
@@ -146,7 +147,8 @@ public class APS implements Serializable {
             System.out.println("[" + subject.get_name() + "]");
             for (Assignment assignment : subject.get_assignments()) {
                 System.out.println("   " + assignment.get_name()
-                        + ", due " + assignment.get_dueDate());
+                        + ", due "
+                        + assignment.get_dueDate().format(dateFormat));
                 for (Task task : assignment.get_tasks()) {
                     System.out.println("      " + task.get_name()
                             + " (" + task.get_time() + ")");
@@ -280,5 +282,10 @@ public class APS implements Serializable {
      * The filepath where the APS is stored.
      */
     private static File _file = new File("aps");
+
+    /**
+     * Formatter for printing LocalDates.
+     */
+    private DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("EEE MM/dd");
 
 }

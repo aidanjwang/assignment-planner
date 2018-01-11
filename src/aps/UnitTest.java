@@ -1,7 +1,6 @@
 package aps;
 
 import org.junit.Test;
-import org.junit.experimental.theories.suppliers.TestedOn;
 import ucb.junit.textui;
 
 import java.io.File;
@@ -36,7 +35,8 @@ public class UnitTest {
     private File _file = new File("aps");
 
     /**
-     * Tests APS.addAssignment.
+     * Tests addAssignment, viewCategorical, viewToday, and
+     * viewAll methods.
      */
     @Test
     public void testAddAssignment() {
@@ -63,11 +63,16 @@ public class UnitTest {
 
         _APS.addAssignment(project);
         _APS.addAssignment(reading);
+
         _APS.viewCategorical();
         _APS.viewToday();
         _APS.viewAll();
     }
 
+    /**
+     * Tests removeAssignment, viewCategorical, viewToday, and
+     * viewAll methods.
+     */
     @Test
     public void testRemoveAssignment() {
         LinkedHashSet<Subject> subjects = new LinkedHashSet<>();
@@ -96,13 +101,15 @@ public class UnitTest {
         _APS.removeAssignment(project);
 
         _APS.viewCategorical();
+        _APS.viewToday();
+        _APS.viewAll();
     }
 
     /**
      * Tests serialize and deserialize methods.
      */
     @Test
-    public void testSerialize() {
+    public void testSerialization() {
         testAddAssignment();
         _APS.serialize();
         _APS = APS.deserialize();
