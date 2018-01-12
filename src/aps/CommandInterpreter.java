@@ -1,5 +1,8 @@
 package aps;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+
 import static aps.Utils.error;
 
 /**
@@ -40,11 +43,43 @@ public class CommandInterpreter {
     }
 
     /**
-     * Executes add command. Calls AddAssignment class.
+     * Executes add command. Prompts user for subject, name, and
+     * due date. Then prompts for tasks that make up assignment.
      */
     private void addCommand() {
         _input.next();
-        _APS.addAssignment(AddAssignment.add(_input, _APS));
+        System.out.println("Which subject is the assignment in?");
+        String next = literal();
+        while (!_APS.containsSubjectName(next)) {
+            System.out.println("That subject doesn't exist. Please enter another.");
+            next = literal();
+        }
+        Subject subject = _APS.getSubject(next);
+
+        System.out.println("What is the name of the assignment?");
+        String name = literal();
+
+        System.out.println("When is the assignment due?");
+        LocalDate dueDate = LocalDate.parse(literal());
+
+        Assignment assignment = new Assignment(name, dueDate, subject);
+
+        System.out.println("What are the tasks that make up this assignment?");
+        ArrayList<String> taskNames = new ArrayList<>();
+        while (!_input.nextIf(";")) {
+            taskNames.add(literal());
+        }
+        System.out.println("How many hours will each task take?");
+        double[] taskTimes = new double[taskNames.size()];
+        for (int x = 0; x < taskTimes.length; x += 1) {
+            System.out.println(taskNames.get(x) + ": ");
+            taskTimes[x] = Double.parseDouble(_input.next());
+        }
+        for (int x = 1; x < taskNames.size(); x += 1) {
+            assignment.addTask(new Task(taskNames.get(x), assignment, taskTimes[x]));
+        }
+
+        _APS.addAssignment(assignment);
     }
 
     /**
@@ -127,8 +162,14 @@ public class CommandInterpreter {
 
     /* FIELDS */
 
+    /**
+     * The input for commands.
+     */
     private Tokenizer _input;
 
+    /**
+     * The APS to act upon.
+     */
     private APS _APS;
 
 }

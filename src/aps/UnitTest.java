@@ -8,6 +8,9 @@ import java.time.LocalDate;
 import java.util.LinkedHashSet;
 import java.util.Scanner;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 /**
  * JUnit tests for the aps.Assignment Planner system. Library
  * from UC Berkeley CS61B course with Prof. P. N. Hilfinger.
@@ -115,6 +118,17 @@ public class UnitTest {
         _APS = APS.deserialize();
         _APS.viewCategorical();
         _file.delete();
+    }
+
+    /**
+     * Tests containsSubject and getSubject methods.
+     */
+    @Test
+    public void testGetSubject() {
+        testAddAssignment();
+        assertTrue(_APS.containsSubjectName("CS"));
+        Subject CS = _APS.getSubject("CS");
+        assertEquals(CS.get_name(), "CS");
     }
 
     /* AddAssignment Tests */
