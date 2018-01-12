@@ -131,22 +131,19 @@ public class UnitTest {
         assertEquals(CS.get_name(), "CS");
     }
 
-    /* AddAssignment Tests */
-
-    /* Main Tests */
-
-    /* Initialize Tests */
+    /* CommandInterpreter Tests */
 
     /**
      * Tests initialize method.
      */
     @Test
     public void testInitialize() {
-        String commands = "'CS' 'English'; 5 5 5 5 5 5 5;";
+        String commands = "'CS' 'English'; 5 5 5 5 5 5 5; view subjects;";
         Scanner scanner = new Scanner(commands);
         Tokenizer input = new Tokenizer(scanner, System.out);
-        _APS = Initialize.initialize(input);
-        _APS.viewCategorical();
+        CommandInterpreter interpreter = new CommandInterpreter(input, _APS);
+        interpreter.initialize();
+        interpreter.command();
     }
 
 }

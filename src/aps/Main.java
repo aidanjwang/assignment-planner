@@ -16,18 +16,26 @@ public class Main {
      * @param args
      */
     public static void main(String... args) {
-        System.out.println("Assignment Planner System.");
+        System.out.println("=== Assignment Planner System ===");
 
         Tokenizer input = new Tokenizer(new Scanner(System.in), System.out);
+        CommandInterpreter interpreter;
 
         if (!APS.isInitialized()) {
-            _APS = Initialize.initialize(input);
+            interpreter = new CommandInterpreter(input, _APS);
+            while (true) {
+                try {
+                    interpreter.initialize();
+                    break;
+                } catch (RuntimeException e) {
+                    System.out.printf("Error: %s%n", e.getMessage());
+                    interpreter.skipCommand();
+                }
+            }
         } else {
             _APS = APS.deserialize();
+            interpreter = new CommandInterpreter(input, _APS);
         }
-
-        CommandInterpreter interpreter =
-                new CommandInterpreter(input, _APS);
 
         while (true) {
             try {

@@ -2,6 +2,7 @@ package aps;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 
 import static aps.Utils.error;
 
@@ -15,6 +16,11 @@ public class CommandInterpreter {
 
     /* CONSTRUCTORS */
 
+    /**
+     * Constructs new CommandInterpreter.
+     * @param inp
+     * @param aps
+     */
     CommandInterpreter(Tokenizer inp, APS aps) {
         _input = inp;
         _APS = aps;
@@ -22,6 +28,34 @@ public class CommandInterpreter {
 
     /* METHODS */
 
+    /**
+     * Initializes APS by prompting settings from user.
+     */
+    public void initialize() {
+        System.out.println("Initializing your Assignment Planner System...");
+
+        System.out.println("What are your subjects? (Type ; when done)");
+        LinkedHashSet<Subject> subjects = new LinkedHashSet<>();
+        while (!_input.nextIf(";")) {
+            subjects.add(new Subject(literal()));
+        }
+
+        System.out.println("How many hours will you work on each day of the week? (Start from Sunday)");
+        double[] dailyHours = new double[7];
+        for (int x = 0; x < dailyHours.length; x += 1) {
+            dailyHours[x] = Double.parseDouble(_input.next());
+        }
+        _input.next(";");
+
+        _APS = new APS(subjects, dailyHours);
+        System.out.println("Initialization complete.");
+    }
+
+    /**
+     * Accepts a single user command, returning false if it
+     * is an exit command.
+     * @return
+     */
     public boolean command() {
         switch (_input.peek()) {
             case "add":
@@ -157,8 +191,6 @@ public class CommandInterpreter {
             }
         }
     }
-
-
 
     /* FIELDS */
 
