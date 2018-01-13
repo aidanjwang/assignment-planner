@@ -13,7 +13,7 @@ public class Main {
      * system, then executes commands from System.in until receiving
      * a 'quit' ('exit') command. Based off aps.Main.main in the UC
      * Berkeley CS61B database project with Prof. P. N. Hilfinger.
-     * @param args
+     * @param args unused
      */
     public static void main(String... args) {
         System.out.println("=== Assignment Planner System ===");
@@ -22,28 +22,28 @@ public class Main {
         CommandInterpreter interpreter;
 
         if (!APS.isInitialized()) {
-            interpreter = new CommandInterpreter(input, _APS);
+            interpreter = new CommandInterpreter(input, _aps);
             while (true) {
                 try {
                     interpreter.initialize();
                     break;
-                } catch (RuntimeException e) {
+                } catch (APSException e) {
                     System.out.printf("Error: %s%n", e.getMessage());
                     interpreter.skipCommand();
                 }
             }
         } else {
-            _APS = APS.deserialize();
-            interpreter = new CommandInterpreter(input, _APS);
+            _aps = APS.deserialize();
+            interpreter = new CommandInterpreter(input, _aps);
         }
 
         while (true) {
             try {
                 if (!interpreter.command()) {
-                    _APS.serialize();
+                    _aps.serialize();
                     break;
                 }
-            } catch (RuntimeException e) {
+            } catch (APSException e) {
                 System.out.printf("Error: %s%n", e.getMessage());
                 interpreter.skipCommand();
             }
@@ -54,6 +54,6 @@ public class Main {
     /**
      * The aps.APS instance being used.
      */
-    private static APS _APS;
+    private static APS _aps;
 
 }

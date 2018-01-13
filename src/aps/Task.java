@@ -11,10 +11,10 @@ public class Task implements Serializable {
     /* CONSTRUCTORS */
 
     /**
-     * Constructs new aps.Task.
-     * @param name
-     * @param assignment
-     * @param time
+     * Constructs new Task.
+     * @param name Task name
+     * @param assignment Assignment which task belongs to
+     * @param time time needed to complete
      */
     public Task(String name, Assignment assignment, double time) {
         _name = name;
@@ -28,7 +28,7 @@ public class Task implements Serializable {
      * Accessor for _name.
      * @return
      */
-    public String get_name() {
+    public String getName() {
         return _name;
     }
 
@@ -36,7 +36,7 @@ public class Task implements Serializable {
      * Accessor for _assignment.
      * @return
      */
-    public Assignment get_assignment() {
+    public Assignment getAssignment() {
         return _assignment;
     }
 
@@ -44,7 +44,7 @@ public class Task implements Serializable {
      * Accessor for _time.
      * @return
      */
-    public double get_time() {
+    public double getTime() {
         return _time;
     }
 

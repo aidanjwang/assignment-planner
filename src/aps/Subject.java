@@ -13,8 +13,8 @@ public class Subject implements Serializable {
     /* CONSTRUCTORS */
 
     /**
-     * Constructs new aps.Subject.
-     * @param name
+     * Constructs new Subject.
+     * @param name Subject name
      */
     public Subject(String name) {
         _name = name;
@@ -25,7 +25,7 @@ public class Subject implements Serializable {
 
     /**
      * Adds a new assignment to this subject.
-     * @param name
+     * @param name Assignment name
      */
     public void addAssignment(Assignment name) {
         _assignments.add(name);
@@ -33,7 +33,7 @@ public class Subject implements Serializable {
 
     /**
      * Removes the given assignment from this subject.
-     * @param name
+     * @param name Assignment name
      */
     public void removeAssignment(Assignment name) {
         _assignments.remove(name);
@@ -41,12 +41,12 @@ public class Subject implements Serializable {
 
     /**
      * Returns true if _assignments contains given assignment name.
-     * @param name
+     * @param name Assignment name
      * @return
      */
     public boolean containsAssignmentName(String name) {
         for (Assignment assignment : _assignments) {
-            if (assignment.get_name().equals(name)) {
+            if (assignment.getName().equals(name)) {
                 return true;
             }
         }
@@ -55,17 +55,17 @@ public class Subject implements Serializable {
 
     /**
      * Returns the aps.Assignment in _assignments with the given name.
-     * @param name
+     * @param name Assignment name
      * @return
      */
     public Assignment getAssignments(String name) {
         for (Assignment assignment : _assignments) {
-            if (assignment.get_name().equals(name)) {
+            if (assignment.getName().equals(name)) {
                 return assignment;
             }
         }
         throw new NoSuchElementException(
-                "aps.Assignment with given name does not exist.");
+                "Assignment with given name does not exist.");
     }
 
 
@@ -75,7 +75,7 @@ public class Subject implements Serializable {
      * Accessor for _name.
      * @return
      */
-    public String get_name() {
+    public String getName() {
         return _name;
     }
 
@@ -83,7 +83,7 @@ public class Subject implements Serializable {
      * Accessor for _assignments.
      * @return
      */
-    public TreeSet<Assignment> get_assignments() {
+    public TreeSet<Assignment> getAssignments() {
         return _assignments;
     }
 

@@ -4,7 +4,11 @@ import java.io.File;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.*;
+import java.util.LinkedHashSet;
+import java.util.TreeSet;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 /**
  * Contains all subjects, assignments, and tasks in the system.
@@ -17,9 +21,10 @@ public class APS implements Serializable {
 
     /**
      * Constructs new aps.APS.
-     * @param subjects
+     * @param subjects subjects in the system
+     * @param dailyHours hours of worktime for every day
      */
-    public APS (LinkedHashSet<Subject> subjects, double[] dailyHours) {
+    public APS(LinkedHashSet<Subject> subjects, double[] dailyHours) {
         _subjects = subjects;
         _dailyHours = dailyHours;
         _assignments = new TreeSet<>();
@@ -31,10 +36,10 @@ public class APS implements Serializable {
     /**
      * Adds assignment to its subject and _assignments, then updates
      * the _toDoLists.
-     * @param assignment
+     * @param assignment assignment
      */
     public void addAssignment(Assignment assignment) {
-        assignment.get_subject().addAssignment(assignment);
+        assignment.getSubject().addAssignment(assignment);
         _assignments.add(assignment);
         update();
     }
@@ -42,10 +47,10 @@ public class APS implements Serializable {
     /**
      * Removes assignment from its subject and _assignments, then
      * updates the _toDoLists.
-     * @param assignment
+     * @param assignment assignment
      */
     public void removeAssignment(Assignment assignment) {
-        assignment.get_subject().removeAssignment(assignment);
+        assignment.getSubject().removeAssignment(assignment);
         _assignments.remove(assignment);
         update();
     }
@@ -64,13 +69,13 @@ public class APS implements Serializable {
         Task task;
         Date day;
         for (Assignment assignment : _assignments) {
-            numDays = assignment.get_dueDate().compareTo(LocalDate.now());
-            dailyTime = assignment.get_time() / numDays;
+            numDays = assignment.getDueDate().compareTo(LocalDate.now());
+            dailyTime = assignment.getTime() / numDays;
             remainingTime = remainingTime(numDays);
-            taskIterator = assignment.get_tasks().iterator();
-            if (remainingTime < assignment.get_time()) {
+            taskIterator = assignment.getTasks().iterator();
+            if (remainingTime < assignment.getTime()) {
                 dailyHours = arrayScaler(_dailyHours,
-                        assignment.get_time() / remainingTime);
+                        assignment.getTime() / remainingTime);
             } else {
                 dailyHours = _dailyHours.clone();
             }
@@ -79,14 +84,14 @@ public class APS implements Serializable {
             while (taskIterator.hasNext()) {
                 task = taskIterator.next();
                 day = _toDoLists.get(x);
-                dayOfWeek = day.get_date().getDayOfWeek().getValue();
-                if (day.get_workTime() >= dailyHours[dayOfWeek]
+                dayOfWeek = day.getDate().getDayOfWeek().getValue();
+                if (day.getWorkTime() >= dailyHours[dayOfWeek]
                         || runningTime >= dailyTime) {
                     x += 1;
                     runningTime = 0;
                 }
                 _toDoLists.get(x).addTask(task);
-                runningTime += task.get_time();
+                runningTime += task.getTime();
             }
         }
     }
@@ -99,7 +104,7 @@ public class APS implements Serializable {
     private void resetDates() {
         _toDoLists.clear();
         LocalDate today = LocalDate.now();
-        LocalDate lastDueDate = _assignments.last().get_dueDate();
+        LocalDate lastDueDate = _assignments.last().getDueDate();
         for (int x = 0; x < lastDueDate.compareTo(today); x += 1) {
             _toDoLists.add(new Date(today.plusDays(x)));
         }
@@ -108,17 +113,18 @@ public class APS implements Serializable {
     /**
      * Calculates total unallocated worktime between today and
      * given number of subsequent days. Used in update().
-     * @param numDays
+     * @param numDays number of work days
      * @return
      */
     private double remainingTime(int numDays) {
         double remainingTime = 0;
         int x = 0;
         Date day = _toDoLists.get(x);
-        int dayOfWeek = day.get_date().getDayOfWeek().getValue();
+        int dayOfWeek = day.getDate().getDayOfWeek().getValue();
         while (x < numDays) {
             day = _toDoLists.get(x);
-            remainingTime += _dailyHours[(dayOfWeek + x) % 7] - day.get_workTime();
+            remainingTime += _dailyHours[(dayOfWeek + x) % 7]
+                    - day.getWorkTime();
             x += 1;
         }
         return remainingTime;
@@ -127,8 +133,8 @@ public class APS implements Serializable {
     /**
      * Scales each element in the given array by the given scalar.
      * Used in update().
-     * @param array
-     * @param scalar
+     * @param array array
+     * @param scalar scalar value
      * @return
      */
     private double[] arrayScaler(double[] array, double scalar) {
@@ -144,14 +150,14 @@ public class APS implements Serializable {
     public void viewCategorical() {
         System.out.println("=== Assignments ===");
         for (Subject subject : _subjects) {
-            System.out.println("[" + subject.get_name() + "]");
-            for (Assignment assignment : subject.get_assignments()) {
-                System.out.println("   " + assignment.get_name()
+            System.out.println("[" + subject.getName() + "]");
+            for (Assignment assignment : subject.getAssignments()) {
+                System.out.println("   " + assignment.getName()
                         + ", due "
-                        + assignment.get_dueDate().format(dateFormat));
-                for (Task task : assignment.get_tasks()) {
-                    System.out.println("      " + task.get_name()
-                            + " (" + task.get_time() + ")");
+                        + assignment.getDueDate().format(dateFormat));
+                for (Task task : assignment.getTasks()) {
+                    System.out.println("      " + task.getName()
+                            + " (" + task.getTime() + ")");
                 }
             }
         }
@@ -175,7 +181,7 @@ public class APS implements Serializable {
     public void viewAll() {
         System.out.println("=== All To-Do Lists ===");
         for (Date day : _toDoLists) {
-            if (day.get_workTime() == 0) {
+            if (day.getWorkTime() == 0) {
                 break;
             }
             day.print();
@@ -185,12 +191,12 @@ public class APS implements Serializable {
 
     /**
      * Returns true if _subjects contains given subject name.
-     * @param name
+     * @param name subject name
      * @return
      */
     public boolean containsSubjectName(String name) {
         for (Subject subject : _subjects) {
-            if (subject.get_name().equals(name)) {
+            if (subject.getName().equals(name)) {
                 return true;
             }
         }
@@ -199,12 +205,12 @@ public class APS implements Serializable {
 
     /**
      * Returns the Subject in _subjects with the given name.
-     * @param name
+     * @param name subject name
      * @return
      */
     public Subject getSubject(String name) {
         for (Subject subject : _subjects) {
-            if (subject.get_name().equals(name)) {
+            if (subject.getName().equals(name)) {
                 return subject;
             }
         }
@@ -233,24 +239,6 @@ public class APS implements Serializable {
      */
     public static APS deserialize() {
         return Utils.readObject(_file, APS.class);
-    }
-
-    /* ACCESSORS */
-
-    /**
-     * Accessor for _subjects.
-     * @return
-     */
-    public LinkedHashSet<Subject> get_subjects() {
-        return _subjects;
-    }
-
-    /**
-     * Accessor for _assignments.
-     * @return
-     */
-    public TreeSet<Assignment> get_assignments() {
-        return _assignments;
     }
 
     /* FIELDS */
@@ -286,6 +274,7 @@ public class APS implements Serializable {
     /**
      * Formatter for printing LocalDates.
      */
-    private DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("EEE MM/dd");
+    private DateTimeFormatter dateFormat =
+            DateTimeFormatter.ofPattern("EEE MM/dd");
 
 }

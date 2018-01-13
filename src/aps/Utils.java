@@ -1,11 +1,18 @@
 package aps;
 
-import java.io.*;
+import java.io.File;
+import java.io.Serializable;
+import java.io.IOException;
+import java.io.BufferedOutputStream;
+import java.io.ObjectInputStream;
+import java.io.FileInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.ObjectOutputStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.regex.Pattern;
 
-/** Assorted utilities. From UC Berkeley CS61B course with Prof. P. N. Hilfinger.
+/** Assorted utilities from UC Berkeley CS61B course with Prof. P. N. Hilfinger.
  *  @author P. N. Hilfinger
  */
 class Utils {
@@ -24,13 +31,6 @@ class Utils {
         } catch (IOException excp) {
             throw new IllegalArgumentException(excp.getMessage());
         }
-    }
-
-    /** Return the entire contents of FILE as a String.  FILE must
-     *  be a normal file.  Throws IllegalArgumentException
-     *  in case of problems. */
-    static String readContentsAsString(File file) {
-        return new String(readContents(file), StandardCharsets.UTF_8);
     }
 
     /** Write the result of concatenating the bytes in CONTENTS to FILE,
@@ -101,7 +101,7 @@ class Utils {
     /** Return a RuntimeException whose message is composed from MSG and ARGS as
      *  for the String.format method. */
     static RuntimeException error(String msg, Object... args) {
-        return new RuntimeException(String.format(msg, args));
+        return new APSException(String.format(msg, args));
     }
 
     /* READING USER INPUT */

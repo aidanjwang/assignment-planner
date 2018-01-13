@@ -30,7 +30,7 @@ public class UnitTest {
     /**
      * APS instance for tests.
      */
-    private APS _APS;
+    private APS _aps;
 
     /**
      * File path where APS is serialized.
@@ -44,17 +44,17 @@ public class UnitTest {
     @Test
     public void testAddAssignment() {
         LinkedHashSet<Subject> subjects = new LinkedHashSet<>();
-        Subject CS = new Subject("CS");
-        Subject English = new Subject("English");
-        subjects.add(CS);
-        subjects.add(English);
+        Subject cs = new Subject("CS");
+        Subject english = new Subject("English");
+        subjects.add(cs);
+        subjects.add(english);
         double[] dailyHours = {2, 2, 2, 2, 2, 2, 2};
-        _APS = new APS(subjects, dailyHours);
+        _aps = new APS(subjects, dailyHours);
 
         LocalDate dueDate1 = LocalDate.of(2018, 1, 14);
         LocalDate dueDate2 = LocalDate.of(2018, 1, 12);
-        Assignment project = new Assignment("project", dueDate1, CS);
-        Assignment reading = new Assignment("reading", dueDate2, English);
+        Assignment project = new Assignment("project", dueDate1, cs);
+        Assignment reading = new Assignment("reading", dueDate2, english);
         Task unitTest = new Task("unitTest", project, 2);
         Task debug = new Task("debug", project, 1);
         Task firstHalf = new Task("firstHalf", reading, 1);
@@ -64,12 +64,12 @@ public class UnitTest {
         reading.addTask(firstHalf);
         reading.addTask(secondHalf);
 
-        _APS.addAssignment(project);
-        _APS.addAssignment(reading);
+        _aps.addAssignment(project);
+        _aps.addAssignment(reading);
 
-        _APS.viewCategorical();
-        _APS.viewToday();
-        _APS.viewAll();
+        _aps.viewCategorical();
+        _aps.viewToday();
+        _aps.viewAll();
     }
 
     /**
@@ -79,17 +79,17 @@ public class UnitTest {
     @Test
     public void testRemoveAssignment() {
         LinkedHashSet<Subject> subjects = new LinkedHashSet<>();
-        Subject CS = new Subject("CS");
-        Subject English = new Subject("English");
-        subjects.add(CS);
-        subjects.add(English);
+        Subject cs = new Subject("CS");
+        Subject english = new Subject("English");
+        subjects.add(cs);
+        subjects.add(english);
         double[] dailyHours = {2, 2, 2, 2, 2, 2, 2};
-        _APS = new APS(subjects, dailyHours);
+        _aps = new APS(subjects, dailyHours);
 
         LocalDate dueDate1 = LocalDate.of(2018, 1, 14);
         LocalDate dueDate2 = LocalDate.of(2018, 1, 12);
-        Assignment project = new Assignment("project", dueDate1, CS);
-        Assignment reading = new Assignment("reading", dueDate2, English);
+        Assignment project = new Assignment("project", dueDate1, cs);
+        Assignment reading = new Assignment("reading", dueDate2, english);
         Task unitTest = new Task("unitTest", project, 2);
         Task debug = new Task("debug", project, 1);
         Task firstHalf = new Task("firstHalf", reading, 1);
@@ -99,13 +99,13 @@ public class UnitTest {
         reading.addTask(firstHalf);
         reading.addTask(secondHalf);
 
-        _APS.addAssignment(project);
-        _APS.addAssignment(reading);
-        _APS.removeAssignment(project);
+        _aps.addAssignment(project);
+        _aps.addAssignment(reading);
+        _aps.removeAssignment(project);
 
-        _APS.viewCategorical();
-        _APS.viewToday();
-        _APS.viewAll();
+        _aps.viewCategorical();
+        _aps.viewToday();
+        _aps.viewAll();
     }
 
     /**
@@ -114,9 +114,9 @@ public class UnitTest {
     @Test
     public void testSerialization() {
         testAddAssignment();
-        _APS.serialize();
-        _APS = APS.deserialize();
-        _APS.viewCategorical();
+        _aps.serialize();
+        _aps = APS.deserialize();
+        _aps.viewCategorical();
         _file.delete();
     }
 
@@ -126,9 +126,9 @@ public class UnitTest {
     @Test
     public void testGetSubject() {
         testAddAssignment();
-        assertTrue(_APS.containsSubjectName("CS"));
-        Subject CS = _APS.getSubject("CS");
-        assertEquals(CS.get_name(), "CS");
+        assertTrue(_aps.containsSubjectName("CS"));
+        Subject cs = _aps.getSubject("CS");
+        assertEquals(cs.getName(), "CS");
     }
 
     /* CommandInterpreter Tests */
@@ -141,7 +141,7 @@ public class UnitTest {
         String commands = "'CS' 'English'; 5 5 5 5 5 5 5; view subjects;";
         Scanner scanner = new Scanner(commands);
         Tokenizer input = new Tokenizer(scanner, System.out);
-        CommandInterpreter interpreter = new CommandInterpreter(input, _APS);
+        CommandInterpreter interpreter = new CommandInterpreter(input, _aps);
         interpreter.initialize();
         interpreter.command();
     }

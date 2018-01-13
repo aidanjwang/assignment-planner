@@ -240,8 +240,8 @@ class Tokenizer {
                 if (token == null || token.equals(";")) {
                     break;
                 }
-            } catch (RuntimeException e) {
-                /* Ignore DBException */
+            } catch (APSException e) {
+                /* Ignore APSException */
             }
         }
         flush();

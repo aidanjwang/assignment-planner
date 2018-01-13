@@ -14,9 +14,9 @@ public class Assignment implements Comparable<Assignment>, Serializable {
 
     /**
      * Constructs new aps.Assignment.
-     * @param name
-     * @param dueDate
-     * @param subject
+     * @param name Assignment name
+     * @param dueDate due date
+     * @param subject subject that Assignment belongs to
      */
     public Assignment(String name, LocalDate dueDate, Subject subject) {
         _name = name;
@@ -30,21 +30,21 @@ public class Assignment implements Comparable<Assignment>, Serializable {
 
     /**
      * Adds a task to this assignment.
-     * @param task
+     * @param task new task
      */
     public void addTask(Task task) {
         _tasks.add(task);
-        _time += task.get_time();
+        _time += task.getTime();
     }
 
     /**
      * compareTo() method for sorting. Assignments with sooner
      * due dates have higher priority.
-     * @param a
+     * @param a other assignment
      * @return
      */
     public int compareTo(Assignment a) {
-        return _dueDate.compareTo(a.get_dueDate());
+        return _dueDate.compareTo(a.getDueDate());
     }
 
     /* ACCESSORS */
@@ -53,7 +53,7 @@ public class Assignment implements Comparable<Assignment>, Serializable {
      * Accessor for _name.
      * @return
      */
-    public String get_name() {
+    public String getName() {
         return _name;
     }
 
@@ -61,7 +61,7 @@ public class Assignment implements Comparable<Assignment>, Serializable {
      * Accessor for _dueDate.
      * @return
      */
-    public LocalDate get_dueDate() {
+    public LocalDate getDueDate() {
         return _dueDate;
     }
 
@@ -69,7 +69,7 @@ public class Assignment implements Comparable<Assignment>, Serializable {
      * Accessor for _tasks.
      * @return
      */
-    public LinkedHashSet<Task> get_tasks() {
+    public LinkedHashSet<Task> getTasks() {
         return _tasks;
     }
 
@@ -77,7 +77,7 @@ public class Assignment implements Comparable<Assignment>, Serializable {
      * Accessor for _time.
      * @return
      */
-    public int get_time() {
+    public int getTime() {
         return _time;
     }
 
@@ -85,7 +85,7 @@ public class Assignment implements Comparable<Assignment>, Serializable {
      * Accessor for _subject.
      * @return
      */
-    public Subject get_subject() {
+    public Subject getSubject() {
         return _subject;
     }
 
