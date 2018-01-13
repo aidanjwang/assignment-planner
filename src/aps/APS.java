@@ -59,7 +59,7 @@ public class APS implements Serializable {
      * Clears, then reassigns to-do lists for every day from today
      * till last due date.
      */
-    private void update() {
+    public void update() {
         resetDates();
 
         int numDays, x, dayOfWeek;
@@ -154,7 +154,7 @@ public class APS implements Serializable {
             for (Assignment assignment : subject.getAssignments()) {
                 System.out.println("   " + assignment.getName()
                         + ", due "
-                        + assignment.getDueDate().format(dateFormat));
+                        + assignment.getDueDate().format(_dateFormat));
                 for (Task task : assignment.getTasks()) {
                     System.out.println("      " + task.getName()
                             + " (" + task.getTime() + ")");
@@ -274,7 +274,7 @@ public class APS implements Serializable {
     /**
      * Formatter for printing LocalDates.
      */
-    private DateTimeFormatter dateFormat =
+    private DateTimeFormatter _dateFormat =
             DateTimeFormatter.ofPattern("EEE MM/dd");
 
 }

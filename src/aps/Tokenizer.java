@@ -24,17 +24,19 @@ class Tokenizer {
     private static final String
             LITERAL_TEXT = "'(?:[^,'\n\r]*)'?",
             IDENTIFIER_TEXT = "[\\p{Alpha}_]\\w*",
-            COMMENT_TEXT = "(?:/\\*.*?\\*/|/\\*.*)";
+            COMMENT_TEXT = "(?:/\\*.*?\\*/|/\\*.*)",
+            DATE_TEXT =
+                    "(1[0-2]|0[1-9])/(3[01]|[12][0-9]|0[1-9])/[0-9]{4}";
+
     /**
      * Matches potential tokens, including valid or unterminated
      * literals, valid or unterminated comments, identifiers,
-     * relation symbols (=, <, <=, >=, and !=), end-of-line
-     * sequences, or other single characters.  The pattern matches a
-     * prefix of any string.
+     * end-of-line sequences, or numbers in date format.  The
+     * pattern matches a prefix of any string.
      */
     private static final Pattern
-            TOKEN_PATN = mkPatn("(?s)[<>!]?=|%s|%s|%s|\r?\n|\\S",
-            LITERAL_TEXT, IDENTIFIER_TEXT, COMMENT_TEXT);
+            TOKEN_PATN = mkPatn("%s|%s|%s|%s|\r?\n|\\S",
+            LITERAL_TEXT, IDENTIFIER_TEXT, COMMENT_TEXT, DATE_TEXT);
 
     /**
      * Patterns matching specific kinds of token.  These are intended
@@ -43,10 +45,10 @@ class Tokenizer {
     static final Pattern
             IDENTIFIER = mkPatn(IDENTIFIER_TEXT),
             LITERAL = mkPatn("'.*"),
-            RELATION = mkPatn("[<>!]?=|[<>]");
+            DATE = mkPatn(DATE_TEXT);
 
     /**
-     * A aps.Tokenizer that reads tokens from S, and prompts on PROMPTER,
+     * A Tokenizer that reads tokens from S, and prompts on PROMPTER,
      * if it is non-null.
      */
     Tokenizer(Scanner s, PrintStream prompter) {
@@ -108,14 +110,6 @@ class Tokenizer {
     }
 
     /**
-     * Indicate that a prompt for a token (if needed) should indicate
-     * that a new command is expected.
-     */
-    void newCommand() {
-        _continued = true;
-    }
-
-    /**
      * Read and return the next token, if it matches P.  Otherwise throw
      * APSException.
      */
@@ -169,7 +163,6 @@ class Tokenizer {
         return false;
     }
 
-
     /**
      * Return true iff the next token matches P.  Throws APSException on
      * encountering a lexical error.
@@ -208,46 +201,6 @@ class Tokenizer {
         }
         return _buffer.get(_k);
     }
-
-    /**
-     * Return THIS to its position just after the last flush or flushToSemi
-     * operation(or its initial position if there have been no flush...
-     * operations).
-     */
-    void rewind() {
-        _k = 0;
-    }
-
-    /**
-     * Set the rewind point to the current position.
-     */
-    void flush() {
-        _buffer.subList(0, _k).clear();
-        _k = 0;
-    }
-
-    /**
-     * Set the rewind point and the current position to just after the
-     * next semicolon after the previous rewind point(or the end of input,
-     * whichever comes first).
-     */
-    void flushToSemi() {
-        rewind();
-        while (true) {
-            try {
-                newCommand();
-                String token = next();
-                if (token == null || token.equals(";")) {
-                    break;
-                }
-            } catch (APSException e) {
-                /* Ignore APSException */
-            }
-        }
-        flush();
-        newCommand();
-    }
-
 
     /**
      * Matcher used for pattern matching.

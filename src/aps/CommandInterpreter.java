@@ -1,6 +1,8 @@
 package aps;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 
@@ -168,18 +170,34 @@ public class CommandInterpreter {
     }
 
     /**
+     * Parse and return a valid name (identifier) from the token stream.
+     */
+    private String name() {
+        return _input.next(Tokenizer.IDENTIFIER);
+    }
+
+    /**
      * Parse a literal and return the string it represents (i.e., without
      * single quotes).
      */
-    String literal() {
+    private String literal() {
         String lit = _input.next(Tokenizer.LITERAL);
         return lit.substring(1, lit.length() - 1).trim();
+    }
+
+    private LocalDate date() {
+        String d = _input.next(Tokenizer.DATE);
+        try {
+            return LocalDate.parse(d, _dateFormat);
+        } catch (DateTimeParseException e) {
+            throw error("invalid date: %s", d);
+        }
     }
 
     /**
      * Advance the input past the next semicolon.
      */
-    void skipCommand() {
+    public void skipCommand() {
         while (true) {
             try {
                 while (!_input.nextIf(";") && !_input.nextIf("*EOF*")) {
@@ -203,5 +221,11 @@ public class CommandInterpreter {
      * The APS to act upon.
      */
     private APS _APS;
+
+    /**
+     * Formatter for accepting date inputs.
+     */
+    private DateTimeFormatter _dateFormat =
+            DateTimeFormatter.ofPattern("MM/dd/yyyy");
 
 }

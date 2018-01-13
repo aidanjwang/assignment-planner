@@ -39,7 +39,7 @@ public class Date implements Serializable {
      * Prints this Date's tasks in correct format.
      */
     public void print() {
-        System.out.println(_date.format(dateFormat)
+        System.out.println(_date.format(_dateFormat)
                 + " (" + _workTime + ")");
         for (Task task : _tasks) {
             System.out.println("   ["
@@ -88,7 +88,7 @@ public class Date implements Serializable {
     /**
      * Formatter for printing LocalDates.
      */
-    private DateTimeFormatter dateFormat
+    private DateTimeFormatter _dateFormat
             = DateTimeFormatter.ofPattern("EEE MM/dd");
 
 }

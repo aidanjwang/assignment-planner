@@ -34,6 +34,7 @@ public class Main {
             }
         } else {
             _aps = APS.deserialize();
+            _aps.update();
             interpreter = new CommandInterpreter(input, _aps);
         }
 
