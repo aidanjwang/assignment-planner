@@ -146,4 +146,13 @@ public class UnitTest {
         interpreter.command();
     }
 
+    @Test
+    public void testAddCommand() {}
+
+    @Test
+    public void testRemoveCommand() {}
+
+    @Test
+    public void testViewCommand() {}
+
 }

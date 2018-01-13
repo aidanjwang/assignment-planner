@@ -62,7 +62,7 @@ class Tokenizer {
     /**
      * Read the next potential token and add it to _buffer.  Filters
      * out comments and ends-of-line. Adds "*EOF*" at the end of input.
-     * Throws DBException on encountering a lexical error (such as an
+     * Throws APSException on encountering a lexical error (such as an
      * unterminated literal).
      */
     private void readToken() {
@@ -117,7 +117,7 @@ class Tokenizer {
 
     /**
      * Read and return the next token, if it matches P.  Otherwise throw
-     * DBException
+     * APSException.
      */
     String next(Pattern p) {
         if (!nextIs(p)) {
@@ -132,7 +132,7 @@ class Tokenizer {
 
     /**
      * Read and return the next token, if it equals P.  Otherwise throw
-     * DBException
+     * APSException.
      */
     String next(String p) {
         if (!nextIs(p)) {
@@ -147,7 +147,7 @@ class Tokenizer {
 
     /**
      * Read the next token, if it matches P, and return true.  Otherwise
-     * return false.  Still throws DBException on detecting lexical errors.
+     * return false.  Still throws APSException on detecting lexical errors.
      */
     boolean nextIf(Pattern p) {
         if (nextIs(p)) {
@@ -159,7 +159,7 @@ class Tokenizer {
 
     /**
      * Read the next token, if it equals P, and return true.  Otherwise
-     * return false.  Still throws DBException on detecting lexical errors.
+     * return false.  Still throws APSException on detecting lexical errors.
      */
     boolean nextIf(String p) {
         if (nextIs(p)) {
@@ -171,7 +171,7 @@ class Tokenizer {
 
 
     /**
-     * Return true iff the next token matches P.  Throws DBException on
+     * Return true iff the next token matches P.  Throws APSException on
      * encountering a lexical error.
      */
     boolean nextIs(Pattern p) {
@@ -180,7 +180,7 @@ class Tokenizer {
     }
 
     /**
-     * Return true iff the next token equals P.  Throws DBException on
+     * Return true iff the next token equals P.  Throws APSException on
      * encountering a lexical error.
      */
     boolean nextIs(String p) {
