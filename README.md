@@ -18,13 +18,13 @@ A program that helps users plan when to complete assignments. Allows users to ad
 ## Commands
 User runs the system, which accepts a sequence of commands until the user exits the program. Between sessions of running the system, data is serialized. Commands follow this syntax (BNF grammar):
 
-### Initializing:
+#### Initializing:
 ```
 <initialize statement> ::= “subjects” <new subject>,+ “and” “daily” “hours” <time> “,” <time> “,” <time> “,” <time> “,” <time> “,” <time> “,” <time> “;”
 <new subject> ::= <name>
 ```
 
-### Commands:
+#### Commands:
 ```
 <program> ::= <statement>*
 <statement> ::=
@@ -49,7 +49,7 @@ User runs the system, which accepts a sequence of commands until the user exits 
 <time> denotes a number of hours of time, a nonnegative decimal number.
 ```
 
-### Implemented commands:
+#### Implemented commands:
 1.	`<add statement>` allows user to add an assignment and its tasks.
 2.	`“remove” <subject> <name> “due” <date>` allows user to remove an assignment.
 3.	`“remove” <subject> <name> “due” <date> “task” <literal>` allows user to remove a task.
@@ -58,14 +58,14 @@ User runs the system, which accepts a sequence of commands until the user exits 
 5.	`“view” “subjects” “;”` prints all assignments in subject form.
 6.	`<exit statement>` saves changes and exits the program.
 
-### Future implementations:
+#### Future implementations:
 1.	edit settings: allows user to edit settings (subjects or daily work times).
 2.	edit assignment: allows user to edit an existing assignment.
 3.	store: stores lists into a csv file in list format (Gantt chart) or subject format.
 4.	load: loads lists from a csv file.
 
 ## Internal Structure
-### Classes:
+#### Classes:
 1.	APS class—contains subjects, linked list of Dates, and most commands.
 2.	Subject object—represents a subject category for assignments and contains its Assignments.
 3.	Assignment object—represents an assignment and contains its Subject and Tasks.
@@ -76,6 +76,6 @@ User runs the system, which accepts a sequence of commands until the user exits 
 8.	Tokenizer—converts user input into tokens.
 9.	APSException—RunTimeExceptions for use throughout the system.
 
-### Data Structures:
+#### Data Structures:
 -	The APS class holds a LinkedHashSet of Subjects; each Subject holds a TreeSet of Assignments; each Assignment holds a LinkedHashSet of Tasks, which are iterated over to construct the list forms. Additionally, the APS class holds a TreeSet of all Assignments, which are iterated over to construct the list forms.
 -	The APS class also holds an ArrayList of Date nodes, each representing a date. Each Date contains a LinkedHashSet of Tasks. Each Date also contains a running total worktime for that day.
