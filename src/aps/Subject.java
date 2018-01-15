@@ -45,7 +45,7 @@ public class Subject implements Serializable {
      * @return
      */
     public boolean equals(Subject s) {
-        return _name.equals(s);
+        return _name.equals(s.getName());
     }
 
     /* ACCESSORS */

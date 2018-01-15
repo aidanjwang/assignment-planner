@@ -174,7 +174,7 @@ public class UnitTest {
         Tokenizer input = new Tokenizer(scanner, System.out);
         CommandInterpreter interpreter = new CommandInterpreter(input, _aps);
         interpreter.initialize();
-        for (int x = 0; x < 7; x += 1) {
+        for (int x = 0; x < 7 ; x += 1) {
             interpreter.statement();
         }
     }

@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.LinkedHashSet;
 
+import static aps.Utils.error;
+
 /**
  * Represents a single assignment.
  * @author A. J. Wang
@@ -56,6 +58,16 @@ public class Assignment implements Comparable<Assignment>, Serializable {
         return _tasks.remove(task);
     }
 
+    public Task getTask(String name) {
+        Task task = new Task(name, this, 0);
+        for (Task t : _tasks) {
+            if (task.equals(t)) {
+                return t;
+            }
+        }
+        throw error("Task does not exist.");
+    }
+
     /**
      * compareTo() method for sorting. Assignments with sooner
      * due dates have higher priority.
@@ -68,13 +80,22 @@ public class Assignment implements Comparable<Assignment>, Serializable {
 
     /**
      * equals method for use in APS removeAssignment.
-     * @param a
+     * @param a other Assignment
      * @return
      */
     public boolean equals(Assignment a) {
-        return (_name.equals(a.getName())
+        if (_name.equals(a.getName())) {
+            if (_subject.equals(a.getSubject())) {
+                if (_dueDate.equals(a.getDueDate())) {
+                    return true;
+                }
+            }
+        }
+        return false;
+
+        /*return (_name.equals(a.getName())
                 && _subject.equals(a.getSubject())
-                && _dueDate.equals(a.getDueDate()));
+                && _dueDate.equals(a.getDueDate()));*/
     }
 
     /* ACCESSORS */

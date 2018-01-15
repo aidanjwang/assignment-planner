@@ -71,13 +71,12 @@ public class APS implements Serializable {
      * Returns the Assignment from _assignments that has the given
      * name, subject name, and due date.
      * @param name assignment name
-     * @param subjectname subject name
+     * @param subject subject of assignment
      * @param date due date
      * @return
      */
-    public Assignment getAssignment(String name, String subjectname,
+    public Assignment getAssignment(String name, Subject subject,
                                     LocalDate date) {
-        Subject subject = new Subject(subjectname);
         Assignment assignment = new Assignment(name, date, subject);
         for (Assignment a : _assignments) {
             if (assignment.equals(a)) {

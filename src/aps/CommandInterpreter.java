@@ -147,15 +147,15 @@ public class CommandInterpreter implements Serializable {
         String name = name();
         _input.next("due");
         LocalDate dueDate = date();
-        Assignment assignment = new Assignment(name, dueDate, subject);
+        Assignment assignment = _APS.getAssignment(name, subject, dueDate);
         if (_input.nextIf(";")) {
             _APS.removeAssignment(assignment);
         } else {
             _input.next("task");
             String taskname = literal();
             _input.next(";");
-            Task task = new Task(taskname, assignment, 0);
-            assignment.removeTask(task);
+            Task task = assignment.getTask(taskname);
+            _APS.removeTask(assignment, task);
         }
     }
 
