@@ -35,7 +35,7 @@ User runs the system, which accepts a sequence of commands until the user exits 
 <add statement> ::= “add” <subject> <name> “due” <date> “with” “tasks” <tasks> “;”
 <tasks> ::= <task>,+
 <task> ::= <literal> “(“ <time> “)”
-<remove statement> ::= “remove” <subject> <name> “due” <date> “;”
+<remove statement> ::= “remove” <subject> <name> “due” <date> (“task” <literal>)? “;”
 <view statement> ::= “view” <view clause>
 <view clause> :: =
 	“today” “;”
@@ -51,7 +51,8 @@ User runs the system, which accepts a sequence of commands until the user exits 
 
 ### Implemented commands:
 1.	`<add statement>` allows user to add an assignment and its tasks.
-2.	`<remove statement>` allows user to remove an assignment.
+2.	`“remove” <subject> <name> “due” <date>` allows user to remove an assignment.
+3.	`“remove” <subject> <name> “due” <date> “task” <literal>` allows user to remove a task.
 3.	`“view” “today” “;”` prints today’s to-do list
 4.	`“view” “all” “;”` prints all to-do lists.
 5.	`“view” “subjects” “;”` prints all assignments in subject form.

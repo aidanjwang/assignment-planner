@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="35e1ab43-db68-40a7-bb3e-d690f3300277" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aps/APS.java" afterPath="$PROJECT_DIR$/src/aps/APS.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aps/APSException.java" afterPath="$PROJECT_DIR$/src/aps/APSException.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aps/Assignment.java" afterPath="$PROJECT_DIR$/src/aps/Assignment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aps/CommandInterpreter.java" afterPath="$PROJECT_DIR$/src/aps/CommandInterpreter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aps/Main.java" afterPath="$PROJECT_DIR$/src/aps/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aps/Subject.java" afterPath="$PROJECT_DIR$/src/aps/Subject.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aps/Task.java" afterPath="$PROJECT_DIR$/src/aps/Task.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aps/Tokenizer.java" afterPath="$PROJECT_DIR$/src/aps/Tokenizer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aps/UnitTest.java" afterPath="$PROJECT_DIR$/src/aps/UnitTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,7 +32,7 @@
         <entry file="file://$PROJECT_DIR$/src/aps/CommandInterpreter.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="250">
-              <caret line="16" column="55" lean-forward="false" selection-start-line="16" selection-start-column="55" selection-end-line="16" selection-end-column="55" />
+              <caret line="16" column="31" lean-forward="false" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -51,7 +42,29 @@
         <entry file="file://$PROJECT_DIR$/src/aps/APSException.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="200">
-              <caret line="10" column="67" lean-forward="false" selection-start-line="10" selection-start-column="67" selection-end-line="10" selection-end-column="67" />
+              <caret line="10" column="43" lean-forward="false" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Utils.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/aps/Utils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="800">
+              <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+              <folding>
+                <element signature="e#2995#2996#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="54" column="62" lean-forward="false" selection-start-line="54" selection-start-column="62" selection-end-line="54" selection-end-column="62" />
               <folding />
             </state>
           </provider>
@@ -60,7 +73,7 @@
       <file leaf-file-name="APS.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/aps/APS.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6375">
+            <state relative-caret-position="150">
               <caret line="265" column="0" lean-forward="false" selection-start-line="265" selection-start-column="0" selection-end-line="265" selection-end-column="0" />
               <folding>
                 <element signature="e#8074#8075#0" expanded="true" />
@@ -69,11 +82,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Tokenizer.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Tokenizer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/aps/Tokenizer.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="350">
-              <caret line="18" column="39" lean-forward="false" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+              <caret line="18" column="16" lean-forward="false" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -123,16 +136,16 @@
         <option value="$PROJECT_DIR$/src/aps/Utils.java" />
         <option value="$PROJECT_DIR$/src/aps/Date.java" />
         <option value="$PROJECT_DIR$/src/aps/CommandInterpreter2.java" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/aps/Main.java" />
         <option value="$PROJECT_DIR$/src/aps/Task.java" />
         <option value="$PROJECT_DIR$/src/aps/Assignment.java" />
         <option value="$PROJECT_DIR$/src/aps/Subject.java" />
         <option value="$PROJECT_DIR$/src/aps/APS.java" />
         <option value="$PROJECT_DIR$/src/aps/UnitTest.java" />
+        <option value="$PROJECT_DIR$/src/aps/Tokenizer.java" />
         <option value="$PROJECT_DIR$/src/aps/CommandInterpreter.java" />
         <option value="$PROJECT_DIR$/src/aps/APSException.java" />
-        <option value="$PROJECT_DIR$/src/aps/Tokenizer.java" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -441,9 +454,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="UnitTest_testAddAssignment - 2018.01.15 at 11h 24m 32s.xml">
-      <configuration name="UnitTest.testAddAssignment" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="UnitTest_testRemoveAssignment - 2018.01.15 at 11h 27m 13s.xml">
       <configuration name="UnitTest.testRemoveAssignment" configurationId="JUnit" />
     </history-entry>
@@ -471,6 +481,9 @@
     <history-entry file="UnitTest_testSerialization - 2018.01.15 at 11h 57m 20s.xml">
       <configuration name="UnitTest.testSerialization" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="UnitTest_testSerialization - 2018.01.15 at 11h 57m 34s.xml">
+      <configuration name="UnitTest.testSerialization" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -493,10 +506,10 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3823178" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3823178" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297491" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Style Checker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297491" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33575758" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33572283" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2545946" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -827,14 +840,6 @@
     <entry file="file://$PROJECT_DIR$/src/aps/AddAssignment.java" />
     <entry file="file://$PROJECT_DIR$/src/aps/Initialize.java" />
     <entry file="file://$PROJECT_DIR$/src/aps/CommandInterpreter2.java" />
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/aps/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="113">
@@ -877,16 +882,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/aps/Utils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2275">
-          <caret line="103" column="0" lean-forward="false" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
-          <folding>
-            <element signature="e#3844#3845#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/aps/UnitTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1225">
@@ -899,12 +894,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/aps/APS.java">
+    <entry file="file://$PROJECT_DIR$/src/aps/Tokenizer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6375">
-          <caret line="265" column="0" lean-forward="false" selection-start-line="265" selection-start-column="0" selection-end-line="265" selection-end-column="0" />
+        <state relative-caret-position="350">
+          <caret line="18" column="16" lean-forward="false" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
           <folding>
-            <element signature="e#8074#8075#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -912,7 +907,7 @@
     <entry file="file://$PROJECT_DIR$/src/aps/CommandInterpreter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
-          <caret line="16" column="55" lean-forward="false" selection-start-line="16" selection-start-column="55" selection-end-line="16" selection-end-column="55" />
+          <caret line="16" column="31" lean-forward="false" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
           <folding />
         </state>
       </provider>
@@ -920,18 +915,36 @@
     <entry file="file://$PROJECT_DIR$/src/aps/APSException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
-          <caret line="10" column="67" lean-forward="false" selection-start-line="10" selection-start-column="67" selection-end-line="10" selection-end-column="67" />
+          <caret line="10" column="43" lean-forward="false" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/aps/Tokenizer.java">
+    <entry file="file://$PROJECT_DIR$/src/aps/APS.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="18" column="39" lean-forward="false" selection-start-line="18" selection-start-column="39" selection-end-line="18" selection-end-column="39" />
+        <state relative-caret-position="150">
+          <caret line="265" column="0" lean-forward="false" selection-start-line="265" selection-start-column="0" selection-end-line="265" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#8074#8075#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aps/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="800">
+          <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+          <folding>
+            <element signature="e#2995#2996#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="54" column="62" lean-forward="false" selection-start-line="54" selection-start-column="62" selection-end-line="54" selection-end-column="62" />
+          <folding />
         </state>
       </provider>
     </entry>
