@@ -16,7 +16,7 @@ import static aps.Utils.error;
  * Date and Time regex patterns from regexlib.com.
  * @author P. N. Hilfinger, A. J. Wang
  */
-class Tokenizer {
+class Tokenizer implements Serializable {
 
     /**
      * Text of regular expressions that represent literals (possibly

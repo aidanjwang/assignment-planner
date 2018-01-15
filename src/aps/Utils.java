@@ -10,6 +10,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.ObjectOutputStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.time.format.DateTimeFormatter;
 import java.util.regex.Pattern;
 
 /** Assorted utilities from UC Berkeley CS61B course with Prof. P. N. Hilfinger.
@@ -92,6 +93,7 @@ class Utils {
             objectStream.close();
             return stream.toByteArray();
         } catch (IOException excp) {
+            System.out.println(excp.toString());
             throw error("Internal error serializing commit.");
         }
     }
@@ -114,4 +116,13 @@ class Utils {
         s = s.replace(" *", "\\s*").replace(" ", "\\s+");
         return Pattern.compile(String.format(s, args));
     }
+
+    /* DATE FORMATTING */
+
+    /**
+     * Formatter for printing LocalDates.
+     */
+    static DateTimeFormatter _datePrintFormat =
+            DateTimeFormatter.ofPattern("EEE MM/dd");
+
 }

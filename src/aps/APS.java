@@ -3,12 +3,14 @@ package aps;
 import java.io.File;
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.LinkedHashSet;
 import java.util.TreeSet;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
+
+import static aps.Utils._datePrintFormat;
+import static aps.Utils.error;
 
 /**
  * Contains all subjects, assignments, and tasks in the system.
@@ -20,7 +22,7 @@ public class APS implements Serializable {
     /* CONSTRUCTORS */
 
     /**
-     * Constructs new aps.APS.
+     * Constructs new APS.
      * @param subjects subjects in the system
      * @param dailyHours hours of worktime for every day
      */
@@ -82,7 +84,7 @@ public class APS implements Serializable {
                 return a;
             }
         }
-        throw new NoSuchElementException("Assignment does not exist.");
+        throw error("Assignment does not exist.");
     }
 
     /**
@@ -187,7 +189,7 @@ public class APS implements Serializable {
             for (Assignment assignment : subject.getAssignments()) {
                 System.out.println("   " + assignment.getName()
                         + ", due "
-                        + assignment.getDueDate().format(_dateFormat));
+                        + assignment.getDueDate().format(_datePrintFormat));
                 for (Task task : assignment.getTasks()) {
                     System.out.println("      " + task.getName()
                             + " (" + task.getTime() + ")");
@@ -294,7 +296,7 @@ public class APS implements Serializable {
     private TreeSet<Assignment> _assignments;
 
     /**
-     * Contains aps.Date objects from today till the last assignment's
+     * Contains Date objects from today till the last assignment's
      * due date.
      */
     private ArrayList<Date> _toDoLists;
@@ -303,11 +305,5 @@ public class APS implements Serializable {
      * The filepath where the APS is stored.
      */
     private static File _file = new File("aps");
-
-    /**
-     * Formatter for printing LocalDates.
-     */
-    private DateTimeFormatter _dateFormat =
-            DateTimeFormatter.ofPattern("EEE MM/dd");
 
 }

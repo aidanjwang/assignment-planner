@@ -5,6 +5,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.LinkedHashSet;
 
+import static aps.Utils._datePrintFormat;
+
 /**
  * Each instance represents a date and holds the tasks to
  * be done on that date.
@@ -39,7 +41,7 @@ public class Date implements Serializable {
      * Prints this Date's tasks in correct format.
      */
     public void print() {
-        System.out.println(_date.format(_dateFormat)
+        System.out.println(_date.format(_datePrintFormat)
                 + " (" + _workTime + ")");
         for (Task task : _tasks) {
             System.out.println("   ["
@@ -84,11 +86,5 @@ public class Date implements Serializable {
      * Amount of time currently allocated to tasks on this date.
      */
     private double _workTime;
-
-    /**
-     * Formatter for printing LocalDates.
-     */
-    private DateTimeFormatter _dateFormat
-            = DateTimeFormatter.ofPattern("EEE MM/dd");
 
 }

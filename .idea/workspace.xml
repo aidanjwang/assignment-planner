@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="35e1ab43-db68-40a7-bb3e-d690f3300277" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/assignment-planner/aps/APS.class" afterPath="$PROJECT_DIR$/out/production/assignment-planner/aps/APS.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/assignment-planner/aps/Utils.class" afterPath="$PROJECT_DIR$/out/production/assignment-planner/aps/Utils.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aps/APS.java" afterPath="$PROJECT_DIR$/src/aps/APS.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aps/APSException.java" afterPath="$PROJECT_DIR$/src/aps/APSException.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aps/CommandInterpreter.java" afterPath="$PROJECT_DIR$/src/aps/CommandInterpreter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aps/Date.java" afterPath="$PROJECT_DIR$/src/aps/Date.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aps/Tokenizer.java" afterPath="$PROJECT_DIR$/src/aps/Tokenizer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/aps/Utils.java" afterPath="$PROJECT_DIR$/src/aps/Utils.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,33 +25,14 @@
       <file leaf-file-name="UnitTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/aps/UnitTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1225">
-              <caret line="79" column="39" lean-forward="false" selection-start-line="79" selection-start-column="39" selection-end-line="79" selection-end-column="39" />
+            <state relative-caret-position="175">
+              <caret line="109" column="7" lean-forward="false" selection-start-line="109" selection-start-column="7" selection-end-line="109" selection-end-column="7" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#testAddAssignment#0;class#UnitTest#0" expanded="false" />
                 <element signature="method#testRemoveAssignment#0;class#UnitTest#0" expanded="false" />
+                <element signature="method#testGetSubject#0;class#UnitTest#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CommandInterpreter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/aps/CommandInterpreter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="16" column="31" lean-forward="false" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="APSException.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/aps/APSException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="10" column="43" lean-forward="false" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -51,20 +40,28 @@
       <file leaf-file-name="Utils.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/aps/Utils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="800">
-              <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
-              <folding>
-                <element signature="e#2995#2996#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="276">
+              <caret line="124" column="10" lean-forward="false" selection-start-line="124" selection-start-column="10" selection-end-line="124" selection-end-column="10" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
+      <file leaf-file-name="Date.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/aps/Date.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="54" column="62" lean-forward="false" selection-start-line="54" selection-start-column="62" selection-end-line="54" selection-end-column="62" />
+            <state relative-caret-position="101">
+              <caret line="43" column="50" lean-forward="false" selection-start-line="43" selection-start-column="50" selection-end-line="43" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/aps/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -73,22 +70,11 @@
       <file leaf-file-name="APS.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/aps/APS.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="265" column="0" lean-forward="false" selection-start-line="265" selection-start-column="0" selection-end-line="265" selection-end-column="0" />
+            <state relative-caret-position="25">
+              <caret line="5" column="23" lean-forward="false" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="23" />
               <folding>
-                <element signature="e#8074#8075#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Tokenizer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/aps/Tokenizer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="18" column="16" lean-forward="false" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
-              <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#8039#8040#0" expanded="true" />
+                <element signature="e#8085#8086#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -133,19 +119,19 @@
         <option value="$PROJECT_DIR$/src/Tokenizer.java" />
         <option value="$PROJECT_DIR$/src/aps/AddAssignment.java" />
         <option value="$PROJECT_DIR$/src/aps/Initialize.java" />
-        <option value="$PROJECT_DIR$/src/aps/Utils.java" />
-        <option value="$PROJECT_DIR$/src/aps/Date.java" />
         <option value="$PROJECT_DIR$/src/aps/CommandInterpreter2.java" />
         <option value="$PROJECT_DIR$/src/aps/Main.java" />
         <option value="$PROJECT_DIR$/src/aps/Task.java" />
         <option value="$PROJECT_DIR$/src/aps/Assignment.java" />
         <option value="$PROJECT_DIR$/src/aps/Subject.java" />
-        <option value="$PROJECT_DIR$/src/aps/APS.java" />
         <option value="$PROJECT_DIR$/src/aps/UnitTest.java" />
-        <option value="$PROJECT_DIR$/src/aps/Tokenizer.java" />
-        <option value="$PROJECT_DIR$/src/aps/CommandInterpreter.java" />
-        <option value="$PROJECT_DIR$/src/aps/APSException.java" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/aps/APSException.java" />
+        <option value="$PROJECT_DIR$/src/aps/CommandInterpreter.java" />
+        <option value="$PROJECT_DIR$/src/aps/Tokenizer.java" />
+        <option value="$PROJECT_DIR$/src/aps/Utils.java" />
+        <option value="$PROJECT_DIR$/src/aps/APS.java" />
+        <option value="$PROJECT_DIR$/src/aps/Date.java" />
       </list>
     </option>
   </component>
@@ -169,7 +155,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="AndroidView" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -193,8 +181,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -223,14 +209,14 @@
     </option>
   </component>
   <component name="RunManager" selected="JUnit.UnitTest.testSerialization">
-    <configuration name="UnitTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="aps.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="aps.UnitTest" />
+      <option name="MAIN_CLASS_NAME" value="aps.Main" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -267,6 +253,31 @@
       <envs />
       <patterns />
     </configuration>
+    <configuration name="UnitTest.testGetSubject" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="aps.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="assignment-planner" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="aps" />
+      <option name="MAIN_CLASS_NAME" value="aps.UnitTest" />
+      <option name="METHOD_NAME" value="testGetSubject" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
     <configuration name="UnitTest.testRemoveAssignment" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -280,31 +291,6 @@
       <option name="PACKAGE_NAME" value="aps" />
       <option name="MAIN_CLASS_NAME" value="aps.UnitTest" />
       <option name="METHOD_NAME" value="testRemoveAssignment" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
-    <configuration name="UnitTest.testRemoveStatement" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="aps.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="assignment-planner" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="aps" />
-      <option name="MAIN_CLASS_NAME" value="aps.UnitTest" />
-      <option name="METHOD_NAME" value="testRemoveStatement" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -424,19 +410,19 @@
       <listeners />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.UnitTest.testRemoveStatement" />
-      <item index="1" class="java.lang.String" itemvalue="Application.UnitTest" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.UnitTest.testAddAssignment" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.UnitTest.testRemoveAssignment" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.UnitTest.testSerialization" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.UnitTest.testAddAssignment" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.UnitTest.testRemoveAssignment" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.UnitTest.testSerialization" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.UnitTest.testGetSubject" />
+      <item index="4" class="java.lang.String" itemvalue="Application.Main" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="JUnit.UnitTest.testSerialization" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.UnitTest.testRemoveAssignment" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.UnitTest.testAddAssignment" />
-        <item index="3" class="java.lang.String" itemvalue="Application.UnitTest" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.UnitTest.testRemoveStatement" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Main" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.UnitTest.testGetSubject" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.UnitTest.testRemoveAssignment" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.UnitTest.testAddAssignment" />
       </list>
     </recent_temporary>
   </component>
@@ -454,34 +440,34 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="UnitTest_testRemoveAssignment - 2018.01.15 at 11h 27m 13s.xml">
-      <configuration name="UnitTest.testRemoveAssignment" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="UnitTest_testRemoveAssignment - 2018.01.15 at 11h 49m 25s.xml">
-      <configuration name="UnitTest.testRemoveAssignment" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="UnitTest_testRemoveAssignment - 2018.01.15 at 11h 51m 14s.xml">
-      <configuration name="UnitTest.testRemoveAssignment" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="UnitTest_testRemoveAssignment - 2018.01.15 at 11h 51m 22s.xml">
-      <configuration name="UnitTest.testRemoveAssignment" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="UnitTest_testRemoveAssignment - 2018.01.15 at 11h 54m 06s.xml">
-      <configuration name="UnitTest.testRemoveAssignment" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="UnitTest_testSerialization - 2018.01.15 at 11h 54m 26s.xml">
+    <history-entry file="UnitTest_testSerialization - 2018.01.15 at 12h 09m 16s.xml">
       <configuration name="UnitTest.testSerialization" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UnitTest_testSerialization - 2018.01.15 at 11h 55m 22s.xml">
+    <history-entry file="UnitTest_testSerialization - 2018.01.15 at 12h 10m 37s.xml">
       <configuration name="UnitTest.testSerialization" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UnitTest_testSerialization - 2018.01.15 at 11h 57m 07s.xml">
+    <history-entry file="UnitTest_testSerialization - 2018.01.15 at 12h 10m 45s.xml">
       <configuration name="UnitTest.testSerialization" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UnitTest_testSerialization - 2018.01.15 at 11h 57m 20s.xml">
+    <history-entry file="UnitTest_testSerialization - 2018.01.15 at 12h 13m 32s.xml">
       <configuration name="UnitTest.testSerialization" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UnitTest_testSerialization - 2018.01.15 at 11h 57m 34s.xml">
+    <history-entry file="UnitTest_testSerialization - 2018.01.15 at 12h 17m 18s.xml">
+      <configuration name="UnitTest.testSerialization" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UnitTest_testSerialization - 2018.01.15 at 12h 18m 53s.xml">
+      <configuration name="UnitTest.testSerialization" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UnitTest_testSerialization - 2018.01.15 at 12h 20m 04s.xml">
+      <configuration name="UnitTest.testSerialization" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UnitTest_testSerialization - 2018.01.15 at 12h 20m 42s.xml">
+      <configuration name="UnitTest.testSerialization" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UnitTest_testSerialization - 2018.01.15 at 13h 31m 47s.xml">
+      <configuration name="UnitTest.testSerialization" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UnitTest_testSerialization - 2018.01.15 at 13h 34m 53s.xml">
       <configuration name="UnitTest.testSerialization" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -496,6 +482,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297491" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -505,14 +492,13 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3823178" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3823178" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297491" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Style Checker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297491" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33572283" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33572283" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2545946" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32855436" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2589189" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24972972" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -525,6 +511,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32855436" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -562,7 +549,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="23" />
+      <option name="time" value="27" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -583,7 +570,8 @@
         <state relative-caret-position="400">
           <caret line="16" column="22" lean-forward="true" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
           <folding>
-            <element signature="imports" expanded="false" />
+            <element signature="e#8039#8040#0" expanded="true" />
+            <element signature="e#8085#8086#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -607,7 +595,8 @@
         <state relative-caret-position="1300">
           <caret line="52" column="27" lean-forward="true" selection-start-line="52" selection-start-column="27" selection-end-line="52" selection-end-column="27" />
           <folding>
-            <element signature="imports" expanded="false" />
+            <element signature="e#8039#8040#0" expanded="true" />
+            <element signature="e#8085#8086#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -627,6 +616,7 @@
             <element signature="imports" expanded="true" />
             <element signature="method#testAddAssignment#0;class#UnitTest#0" expanded="false" />
             <element signature="method#testRemoveAssignment#0;class#UnitTest#0" expanded="false" />
+            <element signature="method#testGetSubject#0;class#UnitTest#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -636,7 +626,8 @@
         <state relative-caret-position="1475">
           <caret line="59" column="29" lean-forward="false" selection-start-line="59" selection-start-column="29" selection-end-line="59" selection-end-column="29" />
           <folding>
-            <element signature="imports" expanded="false" />
+            <element signature="e#8039#8040#0" expanded="true" />
+            <element signature="e#8085#8086#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -670,6 +661,7 @@
             <element signature="imports" expanded="true" />
             <element signature="method#testAddAssignment#0;class#UnitTest#0" expanded="false" />
             <element signature="method#testRemoveAssignment#0;class#UnitTest#0" expanded="false" />
+            <element signature="method#testGetSubject#0;class#UnitTest#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -679,7 +671,8 @@
         <state relative-caret-position="1475">
           <caret line="59" column="29" lean-forward="true" selection-start-line="59" selection-start-column="29" selection-end-line="59" selection-end-column="29" />
           <folding>
-            <element signature="imports" expanded="false" />
+            <element signature="e#8039#8040#0" expanded="true" />
+            <element signature="e#8085#8086#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -733,9 +726,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
           <caret line="7" column="6" lean-forward="false" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -744,7 +735,8 @@
         <state relative-caret-position="475">
           <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="false" />
+            <element signature="e#8039#8040#0" expanded="true" />
+            <element signature="e#8085#8086#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -761,7 +753,8 @@
         <state relative-caret-position="275">
           <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="false" />
+            <element signature="e#8039#8040#0" expanded="true" />
+            <element signature="e#8085#8086#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -810,7 +803,8 @@
         <state relative-caret-position="325">
           <caret line="14" column="7" lean-forward="false" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
           <folding>
-            <element signature="imports" expanded="false" />
+            <element signature="e#8039#8040#0" expanded="true" />
+            <element signature="e#8085#8086#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -839,10 +833,10 @@
     <entry file="file://$PROJECT_DIR$/src/aps/AddAssignment.java" />
     <entry file="file://$PROJECT_DIR$/src/aps/Initialize.java" />
     <entry file="file://$PROJECT_DIR$/src/aps/CommandInterpreter2.java" />
-    <entry file="file://$PROJECT_DIR$/src/aps/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/aps/APSException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="41" column="17" lean-forward="true" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
+        <state relative-caret-position="250">
+          <caret line="10" column="67" lean-forward="false" selection-start-line="10" selection-start-column="67" selection-end-line="10" selection-end-column="67" />
           <folding />
         </state>
       </provider>
@@ -857,10 +851,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/aps/Date.java">
+    <entry file="file://$PROJECT_DIR$/src/aps/CommandInterpreter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2075">
-          <caret line="90" column="31" lean-forward="false" selection-start-line="90" selection-start-column="31" selection-end-line="90" selection-end-column="31" />
+        <state relative-caret-position="250">
+          <caret line="16" column="55" lean-forward="false" selection-start-line="16" selection-start-column="55" selection-end-line="16" selection-end-column="55" />
           <folding />
         </state>
       </provider>
@@ -881,68 +875,68 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/aps/UnitTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1225">
-          <caret line="79" column="39" lean-forward="false" selection-start-line="79" selection-start-column="39" selection-end-line="79" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#testAddAssignment#0;class#UnitTest#0" expanded="false" />
-            <element signature="method#testRemoveAssignment#0;class#UnitTest#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/aps/Tokenizer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="18" column="16" lean-forward="false" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+        <state relative-caret-position="175">
+          <caret line="18" column="40" lean-forward="false" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/aps/CommandInterpreter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="16" column="31" lean-forward="false" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/aps/APSException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="10" column="43" lean-forward="false" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/aps/APS.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="265" column="0" lean-forward="false" selection-start-line="265" selection-start-column="0" selection-end-line="265" selection-end-column="0" />
-          <folding>
-            <element signature="e#8074#8075#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/aps/Utils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="800">
-          <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
-          <folding>
-            <element signature="e#2995#2996#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="54" column="62" lean-forward="false" selection-start-line="54" selection-start-column="62" selection-end-line="54" selection-end-column="62" />
+        <state relative-caret-position="990">
+          <caret line="77" column="0" lean-forward="true" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aps/UnitTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="109" column="7" lean-forward="false" selection-start-line="109" selection-start-column="7" selection-end-line="109" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#testAddAssignment#0;class#UnitTest#0" expanded="false" />
+            <element signature="method#testRemoveAssignment#0;class#UnitTest#0" expanded="false" />
+            <element signature="method#testGetSubject#0;class#UnitTest#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aps/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="124" column="10" lean-forward="false" selection-start-line="124" selection-start-column="10" selection-end-line="124" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aps/APS.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="5" column="23" lean-forward="false" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="23" />
+          <folding>
+            <element signature="e#8039#8040#0" expanded="true" />
+            <element signature="e#8085#8086#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aps/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/aps/Date.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="43" column="50" lean-forward="false" selection-start-line="43" selection-start-column="50" selection-end-line="43" selection-end-column="50" />
           <folding />
         </state>
       </provider>

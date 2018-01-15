@@ -8,7 +8,7 @@ import java.io.Serializable;
  *  Prof. P. N. Hilfinger.
  *  @author A. J. Wang
  */
-class APSException extends RuntimeException {
+class APSException extends RuntimeException implements Serializable {
 
 
     /** A GitletException with no message. */

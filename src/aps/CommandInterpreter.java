@@ -14,7 +14,7 @@ import static aps.Utils.error;
  * CS61B database project with Prof. P. N. Hilfinger.
  * @author A. J. Wang
  */
-public class CommandInterpreter {
+public class CommandInterpreter implements Serializable {
 
     /* CONSTRUCTORS */
 
