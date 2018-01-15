@@ -56,6 +56,36 @@ public class APS implements Serializable {
     }
 
     /**
+     * Removes Task from the given Assignment, then updates _toDoLists.
+     * @param assignment assignment of task
+     * @param task task to remove
+     */
+    public void removeTask(Assignment assignment, Task task) {
+        assignment.removeTask(task);
+        update();
+    }
+
+    /**
+     * Returns the Assignment from _assignments that has the given
+     * name, subject name, and due date.
+     * @param name assignment name
+     * @param subjectname subject name
+     * @param date due date
+     * @return
+     */
+    public Assignment getAssignment(String name, String subjectname,
+                                    LocalDate date) {
+        Subject subject = new Subject(subjectname);
+        Assignment assignment = new Assignment(name, date, subject);
+        for (Assignment a : _assignments) {
+            if (assignment.equals(a)) {
+                return a;
+            }
+        }
+        throw new NoSuchElementException("Assignment does not exist.");
+    }
+
+    /**
      * Clears, then reassigns to-do lists for every day from today
      * till last due date.
      */
@@ -70,7 +100,7 @@ public class APS implements Serializable {
         Date day;
         for (Assignment assignment : _assignments) {
             numDays = assignment.getDueDate().compareTo(LocalDate.now());
-            dailyTime = assignment.getTime() / numDays;
+            dailyTime = (double) assignment.getTime() / numDays;
             remainingTime = remainingTime(numDays);
             taskIterator = assignment.getTasks().iterator();
             if (remainingTime < assignment.getTime()) {
@@ -103,6 +133,9 @@ public class APS implements Serializable {
      */
     private void resetDates() {
         _toDoLists.clear();
+        if (_assignments.isEmpty()) {
+            return;
+        }
         LocalDate today = LocalDate.now();
         LocalDate lastDueDate = _assignments.last().getDueDate();
         for (int x = 0; x < lastDueDate.compareTo(today); x += 1) {
@@ -147,7 +180,7 @@ public class APS implements Serializable {
     /**
      * Prints categorical view of subject, assignments, and tasks.
      */
-    public void viewCategorical() {
+    public void viewSubjects() {
         System.out.println("=== Assignments ===");
         for (Subject subject : _subjects) {
             System.out.println("[" + subject.getName() + "]");

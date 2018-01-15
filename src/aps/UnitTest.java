@@ -38,7 +38,7 @@ public class UnitTest {
     private File _file = new File("aps");
 
     /**
-     * Tests addAssignment, viewCategorical, viewToday, and
+     * Tests addAssignment, viewSubjects, viewToday, and
      * viewAll methods.
      */
     @Test
@@ -51,8 +51,8 @@ public class UnitTest {
         double[] dailyHours = {2, 2, 2, 2, 2, 2, 2};
         _aps = new APS(subjects, dailyHours);
 
-        LocalDate dueDate1 = LocalDate.of(2018, 1, 14);
-        LocalDate dueDate2 = LocalDate.of(2018, 1, 12);
+        LocalDate dueDate1 = LocalDate.of(2018, 1, 20);
+        LocalDate dueDate2 = LocalDate.of(2018, 1, 18);
         Assignment project = new Assignment("project", dueDate1, cs);
         Assignment reading = new Assignment("reading", dueDate2, english);
         Task unitTest = new Task("unitTest", project, 2);
@@ -67,13 +67,13 @@ public class UnitTest {
         _aps.addAssignment(project);
         _aps.addAssignment(reading);
 
-        _aps.viewCategorical();
+        _aps.viewSubjects();
         _aps.viewToday();
         _aps.viewAll();
     }
 
     /**
-     * Tests removeAssignment, viewCategorical, viewToday, and
+     * Tests removeAssignment, viewSubjects, viewToday, and
      * viewAll methods.
      */
     @Test
@@ -86,25 +86,19 @@ public class UnitTest {
         double[] dailyHours = {2, 2, 2, 2, 2, 2, 2};
         _aps = new APS(subjects, dailyHours);
 
-        LocalDate dueDate1 = LocalDate.of(2018, 1, 14);
-        LocalDate dueDate2 = LocalDate.of(2018, 1, 12);
+        LocalDate dueDate1 = LocalDate.of(2018, 1, 20);
         Assignment project = new Assignment("project", dueDate1, cs);
-        Assignment reading = new Assignment("reading", dueDate2, english);
         Task unitTest = new Task("unitTest", project, 2);
         Task debug = new Task("debug", project, 1);
-        Task firstHalf = new Task("firstHalf", reading, 1);
-        Task secondHalf = new Task("secondHalf", reading, 1);
         project.addTask(unitTest);
         project.addTask(debug);
-        reading.addTask(firstHalf);
-        reading.addTask(secondHalf);
 
         _aps.addAssignment(project);
-        _aps.addAssignment(reading);
+        _aps.removeTask(project, unitTest);
+        _aps.viewSubjects();
+        _aps.viewAll();
         _aps.removeAssignment(project);
-
-        _aps.viewCategorical();
-        _aps.viewToday();
+        _aps.viewSubjects();
         _aps.viewAll();
     }
 
@@ -116,7 +110,7 @@ public class UnitTest {
         testAddAssignment();
         _aps.serialize();
         _aps = APS.deserialize();
-        _aps.viewCategorical();
+        _aps.viewSubjects();
         _file.delete();
     }
 
@@ -138,7 +132,7 @@ public class UnitTest {
      */
     @Test
     public void testInitialize() {
-        String commands = "'CS' 'English'; 5 5 5 5 5 5 5; view subjects;";
+        String commands = "subjects CS, English and daily hours 5, 5, 5, 5, 5, 5, 5; view subjects;";
         Scanner scanner = new Scanner(commands);
         Tokenizer input = new Tokenizer(scanner, System.out);
         CommandInterpreter interpreter = new CommandInterpreter(input, _aps);
@@ -146,13 +140,43 @@ public class UnitTest {
         interpreter.statement();
     }
 
+    /**
+     * Tests add statement and view statements.
+     */
     @Test
-    public void testAddStatement() {}
+    public void testAddStatement() {
+        String commands = "subjects CS, English and daily hours 2, 2, 2, 2, 2, 2, 2; " +
+                "add CS project due 01/20/2018 with tasks 'unit test' (2), 'debug' (1);" +
+                "view today;" +
+                "view all;" +
+                "view subjects;";
+        Scanner scanner = new Scanner(commands);
+        Tokenizer input = new Tokenizer(scanner, System.out);
+        CommandInterpreter interpreter = new CommandInterpreter(input, _aps);
+        interpreter.initialize();
+        for (int x = 0; x < 4; x += 1) {
+            interpreter.statement();
+        }
+    }
 
+    /**
+     * Tests remove statements and view statements.
+     */
     @Test
-    public void testRemoveStatement() {}
-
-    @Test
-    public void testViewStatement() {}
+    public void testRemoveStatement() {
+        String commands = "subjects CS, English and daily hours 2, 2, 2, 2, 2, 2, 2; " +
+                "add CS project due 01/20/2018 with tasks 'unit test' (2), 'debug' (1);" +
+                "remove CS project due 01/20/2018 task 'unit test';" +
+                "view all; view subjects;" +
+                "remove CS project due 01/20/2018;" +
+                "view all; view subjects;";
+        Scanner scanner = new Scanner(commands);
+        Tokenizer input = new Tokenizer(scanner, System.out);
+        CommandInterpreter interpreter = new CommandInterpreter(input, _aps);
+        interpreter.initialize();
+        for (int x = 0; x < 7; x += 1) {
+            interpreter.statement();
+        }
+    }
 
 }

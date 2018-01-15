@@ -40,12 +40,20 @@ public class Assignment implements Comparable<Assignment>, Serializable {
     /**
      * Adds all given tasks to this assignment, in original
      * order.
-     * @param tasks
+     * @param tasks tasks to add
      */
     public void addTasks(LinkedHashSet<Task> tasks) {
         for (Task task : tasks) {
             addTask(task);
         }
+    }
+
+    /**
+     * Removes the task with given task name.
+     * @param task the task
+     */
+    public boolean removeTask(Task task) {
+        return _tasks.remove(task);
     }
 
     /**
@@ -56,6 +64,17 @@ public class Assignment implements Comparable<Assignment>, Serializable {
      */
     public int compareTo(Assignment a) {
         return _dueDate.compareTo(a.getDueDate());
+    }
+
+    /**
+     * equals method for use in APS removeAssignment.
+     * @param a
+     * @return
+     */
+    public boolean equals(Assignment a) {
+        return (_name.equals(a.getName())
+                && _subject.equals(a.getSubject())
+                && _dueDate.equals(a.getDueDate()));
     }
 
     /* ACCESSORS */

@@ -40,7 +40,7 @@ public class Main {
 
         while (true) {
             try {
-                if (!interpreter.command()) {
+                if (!interpreter.statement()) {
                     _aps.serialize();
                     break;
                 }

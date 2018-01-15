@@ -1,6 +1,7 @@
 package aps;
 
 import java.io.PrintStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -38,7 +39,7 @@ class Tokenizer {
      * prefix of any string.
      */
     private static final Pattern
-            TOKEN_PATN = mkPatn("(?s)|%s|%s|%s|%s|%s|\r?\n|\\S",
+            TOKEN_PATN = mkPatn("%s|%s|%s|%s|%s|\r?\n|\\S",
             LITERAL_TEXT, IDENTIFIER_TEXT, COMMENT_TEXT, DATE_TEXT,
             TIME_TEXT);
 

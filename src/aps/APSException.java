@@ -1,5 +1,7 @@
 package aps;
 
+import java.io.Serializable;
+
 /** General exception indicating an APS error.  For fatal errors, the
  *  result of .getMessage() is the error message to be printed.
  *  Based off Exception classes in UC Berkeley CS61B course with

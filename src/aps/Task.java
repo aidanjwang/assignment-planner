@@ -22,6 +22,17 @@ public class Task implements Serializable {
         _time = time;
     }
 
+    /* METHODS */
+
+    /**
+     * equals method for use by Assignment removeTask.
+     * @param t other Task
+     * @return
+     */
+    public boolean equals(Task t) {
+        return (_name.equals(t.getName()) && _assignment.equals(t.getAssignment()));
+    }
+
     /* ACCESSORS */
 
     /**

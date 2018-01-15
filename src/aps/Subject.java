@@ -40,34 +40,13 @@ public class Subject implements Serializable {
     }
 
     /**
-     * Returns true if _assignments contains given assignment name.
-     * @param name Assignment name
+     * equals method for use in APS methods.
+     * @param s other Subject
      * @return
      */
-    public boolean containsAssignmentName(String name) {
-        for (Assignment assignment : _assignments) {
-            if (assignment.getName().equals(name)) {
-                return true;
-            }
-        }
-        return false;
+    public boolean equals(Subject s) {
+        return _name.equals(s);
     }
-
-    /**
-     * Returns the aps.Assignment in _assignments with the given name.
-     * @param name Assignment name
-     * @return
-     */
-    public Assignment getAssignments(String name) {
-        for (Assignment assignment : _assignments) {
-            if (assignment.getName().equals(name)) {
-                return assignment;
-            }
-        }
-        throw new NoSuchElementException(
-                "Assignment with given name does not exist.");
-    }
-
 
     /* ACCESSORS */
 

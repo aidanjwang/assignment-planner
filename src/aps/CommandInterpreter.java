@@ -1,5 +1,6 @@
 package aps;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -38,8 +39,8 @@ public class CommandInterpreter {
         _input.next("subjects");
         LinkedHashSet<Subject> subjects = new LinkedHashSet<>();
         subjects.add(newSubject());
-        while (_input.nextIs(",")) {
-            newSubject();
+        while (_input.nextIf(",")) {
+            subjects.add(newSubject());
         }
         _input.next("and");
         _input.next("daily");
@@ -117,7 +118,7 @@ public class CommandInterpreter {
     private LinkedHashSet<Task> tasks(Assignment assignment) {
         LinkedHashSet<Task> tasks = new LinkedHashSet<>();
         tasks.add(task(assignment));
-        while (_input.nextIs(",")) {
+        while (_input.nextIf(",")) {
             tasks.add(task(assignment));
         }
         return tasks;
@@ -146,9 +147,16 @@ public class CommandInterpreter {
         String name = name();
         _input.next("due");
         LocalDate dueDate = date();
-        _input.next(";");
         Assignment assignment = new Assignment(name, dueDate, subject);
-        _APS.removeAssignment(assignment);
+        if (_input.nextIf(";")) {
+            _APS.removeAssignment(assignment);
+        } else {
+            _input.next("task");
+            String taskname = literal();
+            _input.next(";");
+            Task task = new Task(taskname, assignment, 0);
+            assignment.removeTask(task);
+        }
     }
 
     /**
@@ -156,16 +164,16 @@ public class CommandInterpreter {
      */
     private void viewStatement() {
         _input.next("view");
-        if (_input.nextIs("today")) {
+        if (_input.nextIf("today")) {
             _input.next(";");
             _APS.viewToday();
-        } else if (_input.nextIs("all")) {
+        } else if (_input.nextIf("all")) {
             _input.next(";");
             _APS.viewAll();
         } else {
             _input.next("subjects");
             _input.next(";");
-            _APS.viewCategorical();
+            _APS.viewSubjects();
         }
     }
 
