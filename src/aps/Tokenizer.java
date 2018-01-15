@@ -11,32 +11,36 @@ import static aps.Utils.error;
 
 /**
  * Represents a stream of tokens read from a given Scanner. From
- * UC Berkeley CS61B course with Prof. P. N. Hilfinger.
- * @author P. N. Hilfinger.
+ * UC Berkeley CS61B course with Prof. P. N. Hilfinger, modified.
+ * Date and Time regex patterns from regexlib.com.
+ * @author P. N. Hilfinger, A. J. Wang
  */
 class Tokenizer {
 
     /**
      * Text of regular expressions that represent literals (possibly
-     * unterminated), identifiers, and comments (possibly
-     * unterminated).
+     * unterminated), identifiers, comments (possibly unterminated),
+     * dates, and numbers.
      */
     private static final String
             LITERAL_TEXT = "'(?:[^,'\n\r]*)'?",
             IDENTIFIER_TEXT = "[\\p{Alpha}_]\\w*",
             COMMENT_TEXT = "(?:/\\*.*?\\*/|/\\*.*)",
             DATE_TEXT =
-                    "(1[0-2]|0[1-9])/(3[01]|[12][0-9]|0[1-9])/[0-9]{4}";
+                    "(1[0-2]|0[1-9])/(3[01]|[12][0-9]|0[1-9])/[0-9]{4}",
+            NUMBER_TEXT = "\\d+(\\.\\d+)?";
 
     /**
      * Matches potential tokens, including valid or unterminated
      * literals, valid or unterminated comments, identifiers,
-     * end-of-line sequences, or numbers in date format.  The
-     * pattern matches a prefix of any string.
+     * end-of-line sequences, numbers in date format, non-negative
+     * numbers, or single characters.  The pattern matches a
+     * prefix of any string.
      */
     private static final Pattern
-            TOKEN_PATN = mkPatn("%s|%s|%s|%s|\r?\n|\\S",
-            LITERAL_TEXT, IDENTIFIER_TEXT, COMMENT_TEXT, DATE_TEXT);
+            TOKEN_PATN = mkPatn("(?s)|%s|%s|%s|%s|%s|\r?\n|\\S",
+            LITERAL_TEXT, IDENTIFIER_TEXT, COMMENT_TEXT, DATE_TEXT,
+            NUMBER_TEXT);
 
     /**
      * Patterns matching specific kinds of token.  These are intended
@@ -45,7 +49,8 @@ class Tokenizer {
     static final Pattern
             IDENTIFIER = mkPatn(IDENTIFIER_TEXT),
             LITERAL = mkPatn("'.*"),
-            DATE = mkPatn(DATE_TEXT);
+            DATE = mkPatn(DATE_TEXT),
+            NUMBER = mkPatn(NUMBER_TEXT);
 
     /**
      * A Tokenizer that reads tokens from S, and prompts on PROMPTER,
