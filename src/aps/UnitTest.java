@@ -143,16 +143,16 @@ public class UnitTest {
         Tokenizer input = new Tokenizer(scanner, System.out);
         CommandInterpreter interpreter = new CommandInterpreter(input, _aps);
         interpreter.initialize();
-        interpreter.command();
+        interpreter.statement();
     }
 
     @Test
-    public void testAddCommand() {}
+    public void testAddStatement() {}
 
     @Test
-    public void testRemoveCommand() {}
+    public void testRemoveStatement() {}
 
     @Test
-    public void testViewCommand() {}
+    public void testViewStatement() {}
 
 }
