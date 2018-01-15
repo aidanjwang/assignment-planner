@@ -28,7 +28,7 @@ class Tokenizer {
             COMMENT_TEXT = "(?:/\\*.*?\\*/|/\\*.*)",
             DATE_TEXT =
                     "(1[0-2]|0[1-9])/(3[01]|[12][0-9]|0[1-9])/[0-9]{4}",
-            NUMBER_TEXT = "\\d+(\\.\\d+)?";
+            TIME_TEXT = "\\d+(\\.\\d+)?";
 
     /**
      * Matches potential tokens, including valid or unterminated
@@ -40,7 +40,7 @@ class Tokenizer {
     private static final Pattern
             TOKEN_PATN = mkPatn("(?s)|%s|%s|%s|%s|%s|\r?\n|\\S",
             LITERAL_TEXT, IDENTIFIER_TEXT, COMMENT_TEXT, DATE_TEXT,
-            NUMBER_TEXT);
+            TIME_TEXT);
 
     /**
      * Patterns matching specific kinds of token.  These are intended
@@ -50,7 +50,7 @@ class Tokenizer {
             IDENTIFIER = mkPatn(IDENTIFIER_TEXT),
             LITERAL = mkPatn("'.*"),
             DATE = mkPatn(DATE_TEXT),
-            NUMBER = mkPatn(NUMBER_TEXT);
+            TIME = mkPatn(TIME_TEXT);
 
     /**
      * A Tokenizer that reads tokens from S, and prompts on PROMPTER,

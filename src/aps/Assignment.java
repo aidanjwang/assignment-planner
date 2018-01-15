@@ -38,6 +38,17 @@ public class Assignment implements Comparable<Assignment>, Serializable {
     }
 
     /**
+     * Adds all given tasks to this assignment, in original
+     * order.
+     * @param tasks
+     */
+    public void addTasks(LinkedHashSet<Task> tasks) {
+        for (Task task : tasks) {
+            addTask(task);
+        }
+    }
+
+    /**
      * compareTo() method for sorting. Assignments with sooner
      * due dates have higher priority.
      * @param a other assignment

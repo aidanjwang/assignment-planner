@@ -3,7 +3,6 @@ package aps;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
-import java.util.ArrayList;
 import java.util.LinkedHashSet;
 
 import static aps.Utils.error;
@@ -31,46 +30,60 @@ public class CommandInterpreter {
     /* METHODS */
 
     /**
-     * Initializes APS by prompting settings from user.
+     * Initializes APS by accepting settings from user.
      */
     public void initialize() {
-        System.out.println("Initializing your Assignment Planner System...");
+        System.out.println("Initialize your Assignment Planner System...");
 
-        System.out.println("What are your subjects? (Type ; when done)");
+        _input.next("subjects");
         LinkedHashSet<Subject> subjects = new LinkedHashSet<>();
-        while (!_input.nextIf(";")) {
-            subjects.add(new Subject(literal()));
+        subjects.add(newSubject());
+        while (_input.nextIs(",")) {
+            newSubject();
         }
-
-        System.out.println("How many hours will you work on each day of the week? (Start from Sunday)");
+        _input.next("and");
+        _input.next("daily");
+        _input.next("hours");
         double[] dailyHours = new double[7];
-        for (int x = 0; x < dailyHours.length; x += 1) {
-            dailyHours[x] = Double.parseDouble(_input.next());
+        for (int x = 0; x < 6; x += 1) {
+            dailyHours[x] = time();
+            _input.next(",");
         }
+        dailyHours[6] = time();
         _input.next(";");
-
         _APS = new APS(subjects, dailyHours);
         System.out.println("Initialization complete.");
     }
 
     /**
-     * Accepts a single user command, returning false if it
-     * is an exit command.
+     * Parses a new subject clause and returns a new Subject with
+     * the given name.
      * @return
      */
-    public boolean command() {
+    private Subject newSubject() {
+        String name = name();
+        return new Subject(name);
+    }
+
+    /**
+     * Accepts a single user statement, returning false if it
+     * is an exit statement.
+     * @return
+     */
+    public boolean statement() {
         switch (_input.peek()) {
             case "add":
-                addCommand();
+                addStatement();
                 break;
             case "remove":
-                removeCommand();
+                removeStatement();
                 break;
             case "view":
-                viewCommand();
+                viewStatement();
                 break;
             case "exit":
             case "quit":
+                exitStatement();
                 return false;
             default:
                 throw error("That is an unrecognizable command.");
@@ -79,94 +92,97 @@ public class CommandInterpreter {
     }
 
     /**
-     * Executes add command. Prompts user for subject, name, and
-     * due date. Then prompts for tasks that make up assignment.
+     * Executes add statement. Accepts input for subject, name, and
+     * due date, and tasks that make up the assignment.
      */
-    private void addCommand() {
-        _input.next();
-        System.out.println("Which subject is the assignment in?");
-        String next = literal();
-        while (!_APS.containsSubjectName(next)) {
-            System.out.println("That subject doesn't exist. Please enter another.");
-            next = literal();
-        }
-        Subject subject = _APS.getSubject(next);
-
-        System.out.println("What is the name of the assignment?");
-        String name = literal();
-
-        System.out.println("When is the assignment due?");
-        LocalDate dueDate = LocalDate.parse(literal());
-
+    private void addStatement() {
+        _input.next("add");
+        Subject subject = subject();
+        String name = name();
+        _input.next("due");
+        LocalDate dueDate = date();
         Assignment assignment = new Assignment(name, dueDate, subject);
-
-        System.out.println("What are the tasks that make up this assignment?");
-        ArrayList<String> taskNames = new ArrayList<>();
-        while (!_input.nextIf(";")) {
-            taskNames.add(literal());
-        }
-        System.out.println("How many hours will each task take?");
-        double[] taskTimes = new double[taskNames.size()];
-        for (int x = 0; x < taskTimes.length; x += 1) {
-            System.out.println(taskNames.get(x) + ": ");
-            taskTimes[x] = Double.parseDouble(_input.next());
-        }
-        for (int x = 1; x < taskNames.size(); x += 1) {
-            assignment.addTask(new Task(taskNames.get(x), assignment, taskTimes[x]));
-        }
-
+        _input.next("with");
+        _input.next("tasks");
+        assignment.addTasks(tasks(assignment));
+        _input.next(";");
         _APS.addAssignment(assignment);
     }
 
     /**
-     * Executes remove command. Prompts user for assignment
-     * name to remove.
+     * Converts user input for tasks into a LinkedHashSet of tasks.
+     * @param assignment
+     * @return
      */
-    private void removeCommand() {
-        _input.next();
-        //TODO
+    private LinkedHashSet<Task> tasks(Assignment assignment) {
+        LinkedHashSet<Task> tasks = new LinkedHashSet<>();
+        tasks.add(task(assignment));
+        while (_input.nextIs(",")) {
+            tasks.add(task(assignment));
+        }
+        return tasks;
     }
 
-    private void viewCommand() {
-        _input.next();
-        switch (_input.peek()) {
-            case "today":
-                viewTodayCommand();
-                break;
-            case "all":
-                viewAllCommand();
-                break;
-            case "subjects":
-                viewSubjectsCommand();
-                break;
+    /**
+     * Converts user input into a Task.
+     * @param assignment
+     * @return
+     */
+    private Task task(Assignment assignment) {
+        String name = literal();
+        _input.next("(");
+        Double time = time();
+        _input.next(")");
+        return new Task(name, assignment, time);
+    }
+
+    /**
+     * Executes remove command. Accepts user input for subject,
+     * assignment name to remove, and due date.
+     */
+    private void removeStatement() {
+        _input.next("remove");
+        Subject subject = subject();
+        String name = name();
+        _input.next("due");
+        LocalDate dueDate = date();
+        _input.next(";");
+        Assignment assignment = new Assignment(name, dueDate, subject);
+        _APS.removeAssignment(assignment);
+    }
+
+    /**
+     * Executes view statement.
+     */
+    private void viewStatement() {
+        _input.next("view");
+        if (_input.nextIs("today")) {
+            _input.next(";");
+            _APS.viewToday();
+        } else if (_input.nextIs("all")) {
+            _input.next(";");
+            _APS.viewAll();
+        } else {
+            _input.next("subjects");
+            _input.next(";");
+            _APS.viewCategorical();
         }
     }
 
     /**
-     * Executes view subjects command.
+     * Parses exit statement. First token is either "exit" or "quit."
      */
-    private void viewSubjectsCommand() {
+    private void exitStatement() {
         _input.next();
         _input.next(";");
-        _APS.viewCategorical();
     }
 
     /**
-     * Executes view today command.
+     * Parses a subject name and returns the subject from the APS.
+     * @return
      */
-    private void viewTodayCommand() {
-        _input.next();
-        _input.next(";");
-        _APS.viewToday();
-    }
-
-    /**
-     * Executes view all command.
-     */
-    private void viewAllCommand() {
-        _input.next();
-        _input.next(";");
-        _APS.viewAll();
+    private Subject subject() {
+        return _APS.getSubject(name());
     }
 
     /**
@@ -185,6 +201,10 @@ public class CommandInterpreter {
         return lit.substring(1, lit.length() - 1).trim();
     }
 
+    /**
+     * Parse a date token and return the LocalDate it represents.
+     * @return
+     */
     private LocalDate date() {
         String d = _input.next(Tokenizer.DATE);
         try {
@@ -192,6 +212,15 @@ public class CommandInterpreter {
         } catch (DateTimeParseException e) {
             throw error("invalid date: %s", d);
         }
+    }
+
+    /**
+     * Parse a time token and return the double it represents.
+     * @return
+     */
+    private double time() {
+        String string = _input.next(Tokenizer.TIME);
+        return Double.parseDouble(string);
     }
 
     /**
