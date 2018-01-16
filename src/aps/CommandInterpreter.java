@@ -20,12 +20,12 @@ public class CommandInterpreter implements Serializable {
 
     /**
      * Constructs new CommandInterpreter.
-     * @param inp
-     * @param aps
+     * @param inp the Tokenizer
+     * @param aps the APS instance
      */
     CommandInterpreter(Tokenizer inp, APS aps) {
         _input = inp;
-        _APS = aps;
+        _aps = aps;
     }
 
     /* METHODS */
@@ -52,7 +52,7 @@ public class CommandInterpreter implements Serializable {
         }
         dailyHours[6] = time();
         _input.next(";");
-        _APS = new APS(subjects, dailyHours);
+        _aps = new APS(subjects, dailyHours);
         System.out.println("Initialization complete.");
     }
 
@@ -73,21 +73,21 @@ public class CommandInterpreter implements Serializable {
      */
     public boolean statement() {
         switch (_input.peek()) {
-            case "add":
-                addStatement();
-                break;
-            case "remove":
-                removeStatement();
-                break;
-            case "view":
-                viewStatement();
-                break;
-            case "exit":
-            case "quit":
-                exitStatement();
-                return false;
-            default:
-                throw error("That is an unrecognizable command.");
+        case "add":
+            addStatement();
+            break;
+        case "remove":
+            removeStatement();
+            break;
+        case "view":
+            viewStatement();
+            break;
+        case "exit":
+        case "quit":
+            exitStatement();
+            return false;
+        default:
+            throw error("That is an unrecognizable command.");
         }
         return true;
     }
@@ -107,12 +107,12 @@ public class CommandInterpreter implements Serializable {
         _input.next("tasks");
         assignment.addTasks(tasks(assignment));
         _input.next(";");
-        _APS.addAssignment(assignment);
+        _aps.addAssignment(assignment);
     }
 
     /**
      * Converts user input for tasks into a LinkedHashSet of tasks.
-     * @param assignment
+     * @param assignment Tasks' Assignment
      * @return
      */
     private LinkedHashSet<Task> tasks(Assignment assignment) {
@@ -126,7 +126,7 @@ public class CommandInterpreter implements Serializable {
 
     /**
      * Converts user input into a Task.
-     * @param assignment
+     * @param assignment Task's Assignment
      * @return
      */
     private Task task(Assignment assignment) {
@@ -147,15 +147,15 @@ public class CommandInterpreter implements Serializable {
         String name = name();
         _input.next("due");
         LocalDate dueDate = date();
-        Assignment assignment = _APS.getAssignment(name, subject, dueDate);
+        Assignment assignment = _aps.getAssignment(name, subject, dueDate);
         if (_input.nextIf(";")) {
-            _APS.removeAssignment(assignment);
+            _aps.removeAssignment(assignment);
         } else {
             _input.next("task");
             String taskname = literal();
             _input.next(";");
             Task task = assignment.getTask(taskname);
-            _APS.removeTask(assignment, task);
+            _aps.removeTask(assignment, task);
         }
     }
 
@@ -166,14 +166,14 @@ public class CommandInterpreter implements Serializable {
         _input.next("view");
         if (_input.nextIf("today")) {
             _input.next(";");
-            _APS.viewToday();
+            _aps.viewToday();
         } else if (_input.nextIf("all")) {
             _input.next(";");
-            _APS.viewAll();
+            _aps.viewAll();
         } else {
             _input.next("subjects");
             _input.next(";");
-            _APS.viewSubjects();
+            _aps.viewSubjects();
         }
     }
 
@@ -190,7 +190,7 @@ public class CommandInterpreter implements Serializable {
      * @return
      */
     private Subject subject() {
-        return _APS.getSubject(name());
+        return _aps.getSubject(name());
     }
 
     /**
@@ -241,7 +241,7 @@ public class CommandInterpreter implements Serializable {
                     _input.next();
                 }
                 return;
-            } catch (RuntimeException excp) {
+            } catch (APSException excp) {
                 /* No action */
             }
         }
@@ -257,7 +257,7 @@ public class CommandInterpreter implements Serializable {
     /**
      * The APS to act upon.
      */
-    private APS _APS;
+    private APS _aps;
 
     /**
      * Formatter for accepting date inputs.

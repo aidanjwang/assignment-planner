@@ -122,7 +122,15 @@ class Utils {
     /**
      * Formatter for printing LocalDates.
      */
-    static DateTimeFormatter _datePrintFormat =
+    private static DateTimeFormatter _datePrintFormat =
             DateTimeFormatter.ofPattern("EEE MM/dd");
+
+    /**
+     * Accessor for _datePrintFormat.
+     * @return
+     */
+    public static DateTimeFormatter getDatePrintFormat() {
+        return _datePrintFormat;
+    }
 
 }

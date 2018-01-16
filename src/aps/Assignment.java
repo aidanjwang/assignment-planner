@@ -3,6 +3,7 @@ package aps;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.LinkedHashSet;
+import java.util.Objects;
 
 import static aps.Utils.error;
 
@@ -53,11 +54,17 @@ public class Assignment implements Comparable<Assignment>, Serializable {
     /**
      * Removes the task with given task name.
      * @param task the task
+     * @return
      */
     public boolean removeTask(Task task) {
         return _tasks.remove(task);
     }
 
+    /**
+     * Returns the task in _tasks with the given name.
+     * @param name task name
+     * @return
+     */
     public Task getTask(String name) {
         Task task = new Task(name, this, 0);
         for (Task t : _tasks) {
@@ -84,18 +91,17 @@ public class Assignment implements Comparable<Assignment>, Serializable {
      * @return
      */
     public boolean equals(Assignment a) {
-        if (_name.equals(a.getName())) {
-            if (_subject.equals(a.getSubject())) {
-                if (_dueDate.equals(a.getDueDate())) {
-                    return true;
-                }
-            }
-        }
-        return false;
-
-        /*return (_name.equals(a.getName())
+        return (_name.equals(a.getName())
                 && _subject.equals(a.getSubject())
-                && _dueDate.equals(a.getDueDate()));*/
+                && _dueDate.equals(a.getDueDate()));
+    }
+
+    /**
+     * Hashcode definition to match equals method.
+     * @return
+     */
+    public int hashCode() {
+        return Objects.hash(_name, _subject, _dueDate);
     }
 
     /* ACCESSORS */

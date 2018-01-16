@@ -1,6 +1,7 @@
 package aps;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * Represents a single task of an assignment.
@@ -30,7 +31,16 @@ public class Task implements Serializable {
      * @return
      */
     public boolean equals(Task t) {
-        return (_name.equals(t.getName()) && _assignment.equals(t.getAssignment()));
+        return (_name.equals(t.getName())
+                && _assignment.equals(t.getAssignment()));
+    }
+
+    /**
+     * Hashcode definition to match equals definition.
+     * @return
+     */
+    public int hashCode() {
+        return Objects.hash(_name, _assignment);
     }
 
     /* ACCESSORS */

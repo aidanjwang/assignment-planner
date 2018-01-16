@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-import static aps.Utils._datePrintFormat;
 import static aps.Utils.error;
+import static aps.Utils.getDatePrintFormat;
 
 /**
  * Contains all subjects, assignments, and tasks in the system.
@@ -188,7 +188,7 @@ public class APS implements Serializable {
             for (Assignment assignment : subject.getAssignments()) {
                 System.out.println("   " + assignment.getName()
                         + ", due "
-                        + assignment.getDueDate().format(_datePrintFormat));
+                        + assignment.getDueDate().format(getDatePrintFormat()));
                 for (Task task : assignment.getTasks()) {
                     System.out.println("      " + task.getName()
                             + " (" + task.getTime() + ")");

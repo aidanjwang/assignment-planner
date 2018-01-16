@@ -2,10 +2,9 @@ package aps;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.LinkedHashSet;
 
-import static aps.Utils._datePrintFormat;
+import static aps.Utils.getDatePrintFormat;
 
 /**
  * Each instance represents a date and holds the tasks to
@@ -41,7 +40,7 @@ public class Date implements Serializable {
      * Prints this Date's tasks in correct format.
      */
     public void print() {
-        System.out.println(_date.format(_datePrintFormat)
+        System.out.println(_date.format(getDatePrintFormat())
                 + " (" + _workTime + ")");
         for (Task task : _tasks) {
             System.out.println("   ["

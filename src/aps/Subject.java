@@ -1,7 +1,6 @@
 package aps;
 
 import java.io.Serializable;
-import java.util.NoSuchElementException;
 import java.util.TreeSet;
 
 /**
@@ -46,6 +45,14 @@ public class Subject implements Serializable {
      */
     public boolean equals(Subject s) {
         return _name.equals(s.getName());
+    }
+
+    /**
+     * Hashcode definition to match equals definition.
+     * @return
+     */
+    public int hashCode() {
+        return _name.hashCode();
     }
 
     /* ACCESSORS */

@@ -132,7 +132,8 @@ public class UnitTest {
      */
     @Test
     public void testInitialize() {
-        String commands = "subjects CS, English and daily hours 5, 5, 5, 5, 5, 5, 5; view subjects;";
+        String commands = "subjects CS, English and daily hours "
+                + "5, 5, 5, 5, 5, 5, 5; view subjects;";
         Scanner scanner = new Scanner(commands);
         Tokenizer input = new Tokenizer(scanner, System.out);
         CommandInterpreter interpreter = new CommandInterpreter(input, _aps);
@@ -145,11 +146,13 @@ public class UnitTest {
      */
     @Test
     public void testAddStatement() {
-        String commands = "subjects CS, English and daily hours 2, 2, 2, 2, 2, 2, 2; " +
-                "add CS project due 01/20/2018 with tasks 'unit test' (2), 'debug' (1);" +
-                "view today;" +
-                "view all;" +
-                "view subjects;";
+        String commands = "subjects CS, English and daily hours "
+                + "2, 2, 2, 2, 2, 2, 2; "
+                + "add CS project due 01/20/2018 with tasks "
+                + "'unit test' (2), 'debug' (1);"
+                + "view today;"
+                + "view all;"
+                + "view subjects;";
         Scanner scanner = new Scanner(commands);
         Tokenizer input = new Tokenizer(scanner, System.out);
         CommandInterpreter interpreter = new CommandInterpreter(input, _aps);
@@ -164,17 +167,19 @@ public class UnitTest {
      */
     @Test
     public void testRemoveStatement() {
-        String commands = "subjects CS, English and daily hours 2, 2, 2, 2, 2, 2, 2; " +
-                "add CS project due 01/20/2018 with tasks 'unit test' (2), 'debug' (1);" +
-                "remove CS project due 01/20/2018 task 'unit test';" +
-                "view all; view subjects;" +
-                "remove CS project due 01/20/2018;" +
-                "view all; view subjects;";
+        String commands = "subjects CS, English and daily hours "
+                + "2, 2, 2, 2, 2, 2, 2; "
+                + "add CS project due 01/20/2018 with tasks "
+                + "'unit test' (2), 'debug' (1);"
+                + "remove CS project due 01/20/2018 task 'unit test';"
+                + "view all; view subjects;"
+                + "remove CS project due 01/20/2018;"
+                + "view all; view subjects;";
         Scanner scanner = new Scanner(commands);
         Tokenizer input = new Tokenizer(scanner, System.out);
         CommandInterpreter interpreter = new CommandInterpreter(input, _aps);
         interpreter.initialize();
-        for (int x = 0; x < 7 ; x += 1) {
+        for (int x = 0; x < 7; x += 1) {
             interpreter.statement();
         }
     }
